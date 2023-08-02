@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    {% include header.html %}
+
+    {% include navigation_bar.html %}
+
+    {% include side_bar.html %}
+
+    <div class="main">
+
+        <h1>Tu souhaites rejoindre la maison Poufsouffle ?</h1>
+
+        <h2>Ta patience va être mise à l'épreuve.</h2>
+
+        <div id="counter_text"> </div></br>
+        <div id="div-epreuve">
+            Attends... <span id="time">10</span></br>
+        </div>
+
+    </div>
+
+    {% include footer.html %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var startDate = new Date();
+            var delay = 50;
+            var aim = 3600;
+
+            var text = "Félicitation, voici un indice.";
+
+            function write(text, t){
+                if (t == 0)
+                    $('#counter_text').html("");
+                if (t < text.length) {
+                    $('#counter_text').html($('#counter_text').text() + text.charAt(t));
+                    setTimeout(write, delay, text, t+1);
+                }
+            }
+
+            function success(){
+                $('#div-epreuve').hide();
+                 write(text, 0);
+            }
+
+            function time(){
+                var newDate = new Date();
+                var elapsed = (newDate - startDate)/1000;
+                var remaining = aim - elapsed;
+                remaining = Math.max(0, remaining);
+                var date = new Date(null);
+                date.setSeconds(remaining);
+                $('#time').html(date.toISOString().substr(11, 8));
+                if (remaining > 0)
+                    setTimeout(time, delay);
+                else
+                    success();
+            }
+
+            time();
+        });
+
+    </script>
+
+</html>

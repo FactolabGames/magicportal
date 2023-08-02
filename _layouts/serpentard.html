@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+    {% include header.html %}
+
+    {% include navigation_bar.html %}
+
+    {% include side_bar.html %}
+
+    <div class="main">
+
+        <h1>Tu souhaites rejoindre la maison Serpentard ?</h1>
+
+        <h2>Ta détermination va être mise à l'épreuve.</h2>
+
+        <div id="counter_text"> </div></br>
+        <div id="div-epreuve">
+            Clique sur le bouton <span id="counter">100</span> fois.</br>
+            <a style="background: {{ page.color }}; color: white;" id="button" class="button">Clique !</a>
+        </div>
+
+
+
+    </div>
+
+
+    {% include footer.html %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var count = 0;
+            var txt1 = "Tu pensais vraiment qu'il suffirait de 100 cliques pour rejoindre la meilleure maison de Poudlard ?! Allez, disons plutôt 1 000 !";
+            var txt2 = "Bravo, ta détermination est sans égale. Voici un indice.";
+            var delay = 75;
+            var count100done = false;
+
+            function write(text, t){
+                if (t == 0)
+                    $('#counter_text').html("");
+                if (t < text.length) {
+                    $('#counter_text').html($('#counter_text').text() + text.charAt(t));
+                    setTimeout(write, delay, text, t+1);
+                }
+                else{
+                    $('#counter').html("10");
+                    count100done = true;
+                }
+            }
+
+            function success(){
+                $('#div-epreuve').hide();
+                 write(txt2, 0);
+            }
+
+            $('#button').click(function(){
+            count = $('#counter').text();
+            if (count > 0){
+                count -= 1;
+                $('#counter').html(count);
+                    if (count == 0){
+                        if (count100done){
+                            success();
+                        }
+                        else
+                            write(txt1, 0);
+                }
+            }
+
+
+            });
+        });
+
+
+    </script>
+
+
+</html>

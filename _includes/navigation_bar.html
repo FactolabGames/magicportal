@@ -1,0 +1,23 @@
+<div class="navigation-wrapper" style="{% if page.color %} background: {{ page.color }}; {% endif %}">
+
+	<div class="site-name" style="font-size:40px; width: 100%; display: flex; align-items: center; justify-content: left; margin: 0; padding:0;">
+		<a href="{{ site.url }}"><img class="nav-icon" src="{{ site.url }}/Assets/Images/Blason-poudlard.png"></a>
+		Portail magique de l'école de sorcellerie Poudlard
+		<div style="margin-left:auto;">
+			<a href="{{ site.url }}/gryffondor"><img class="nav-icon" src="{{ site.url }}/Assets/Images/Blason-gryffondor.png"></a>
+			<a href="{{ site.url }}/serpentard"><img class="nav-icon" src="{{ site.url }}/Assets/Images/Blason-serpentard.png"></a>
+			<a href="{{ site.url }}/poufsouffle"><img class="nav-icon" src="{{ site.url }}/Assets/Images/Blason-poufsouffle.png"></a>
+			<a href="{{ site.url }}/serdaigle"><img class="nav-icon" src="{{ site.url }}/Assets/Images/Blason-serdaigle.png"></a>
+		</div>
+	</div><!-- /.site-name -->
+
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        {% for link in site.links %}
+				<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+		        {% endfor %}
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->

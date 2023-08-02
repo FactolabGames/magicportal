@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>Your awesome title</title>
+    <meta name="generator" content="Jekyll v4.3.2" />
+
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Your awesome title">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://localhost:4000/serpentard.html">
+    <meta property="og:site_name" content="Your awesome title">
+
+    <meta name="google-site-verification" content="" />
+
+    <link rel="canonical" href="http://localhost:4000">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="http://localhost:4000/Assets/css/main.min.css">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    <style>
+    .navigation-wrapper {
+        background: #212f3c;
+        color: white;
+        box-shadow: 0px 0px 0px black;
+    }
+
+    .nav-icon {
+        height: auto;
+        max-width: 100px;
+        margin-top:0;
+        margin-left:10px;
+        margin-right:25px;
+    }
+
+    .image-blason {
+        height: auto;
+        max-width: 300px;
+        margin: 25px;
+    }
+
+    .text-blason {
+        width:300px;
+    }
+
+    .container-blason {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page {
+        text-align: center;
+    }
+
+    #main {
+        text-align: center;
+    }
+
+    .main {
+        text-align: center;
+    }
+
+    .button {
+          border: none;
+          color: white;
+          padding: 3px 10px;
+          margin: 10px 10px 0px 0px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 25px;
+          font-weight: bold;
+          border-radius: 10px;
+          box-shadow: 2px 2px 2px black;
+          transition-duration: 0.4s;
+          position: relative;
+    }
+
+    .button:after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 10px;
+      left: 0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.5s;
+      box-shadow: 2px 2px 10px 15px black;
+    }
+
+    .button:active:after {
+      box-shadow: 2px 2px 2px black;
+      position: absolute;
+      border-radius: 10px;
+      left: 0;
+      top:0;
+      opacity: 1;
+      transition: 0s;
+    }
+
+
+
+</style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+</head>
+
+    <div class="navigation-wrapper" style=" background: #145a32; ">
+
+	<div class="site-name" style="font-size:40px; width: 100%; display: flex; align-items: center; justify-content: left; margin: 0; padding:0;">
+		<a href="http://localhost:4000"><img class="nav-icon" src="http://localhost:4000/Assets/Images/Blason-poudlard.png"></a>
+		Portail magique de l'école de sorcellerie Poudlard
+		<div style="margin-left:auto;">
+			<a href="http://localhost:4000/gryffondor"><img class="nav-icon" src="http://localhost:4000/Assets/Images/Blason-gryffondor.png"></a>
+			<a href="http://localhost:4000/serpentard"><img class="nav-icon" src="http://localhost:4000/Assets/Images/Blason-serpentard.png"></a>
+			<a href="http://localhost:4000/poufsouffle"><img class="nav-icon" src="http://localhost:4000/Assets/Images/Blason-poufsouffle.png"></a>
+			<a href="http://localhost:4000/serdaigle"><img class="nav-icon" src="http://localhost:4000/Assets/Images/Blason-serdaigle.png"></a>
+		</div>
+	</div><!-- /.site-name -->
+
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+    <div class="side-bar" style="float: left">
+    <img style="width: 100px;" src="http://localhost:4000/Assets/Images/Drapeau-serpentard.png">
+
+</div>
+
+    <div class="main">
+
+        <h1>Tu souhaites rejoindre la maison Serpentard ?</h1>
+
+        <h2>Ta détermination va être mise à l'épreuve.</h2>
+
+        <div id="counter_text"> </div></br>
+        <div id="div-epreuve">
+            Clique sur le bouton <span id="counter">100</span> fois.</br>
+            <a style="background: #145a32; color: white;" id="button" class="button">Clique !</a>
+        </div>
+
+
+
+    </div>
+
+
+    <footer>
+
+</footer>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var count = 0;
+            var txt1 = "Tu pensais vraiment qu'il suffirait de 100 cliques pour rejoindre la meilleure maison de Poudlard ?! Allez, disons plutôt 1 000 !";
+            var txt2 = "Bravo, ta détermination est sans égale. Voici un indice.";
+            var delay = 75;
+            var count100done = false;
+
+            function write(text, t){
+                if (t == 0)
+                    $('#counter_text').html("");
+                if (t < text.length) {
+                    $('#counter_text').html($('#counter_text').text() + text.charAt(t));
+                    setTimeout(write, delay, text, t+1);
+                }
+                else{
+                    $('#counter').html("10");
+                    count100done = true;
+                }
+            }
+
+            function success(){
+                $('#div-epreuve').hide();
+                 write(txt2, 0);
+            }
+
+            $('#button').click(function(){
+            count = $('#counter').text();
+            if (count > 0){
+                count -= 1;
+                $('#counter').html(count);
+                    if (count == 0){
+                        if (count100done){
+                            success();
+                        }
+                        else
+                            write(txt1, 0);
+                }
+            }
+
+
+            });
+        });
+
+
+    </script>
+
+
+</html>

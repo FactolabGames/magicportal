@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
-{% include header.html %}
-<body class="page">
+
+    {% include header.html %}
+
     {% include navigation_bar.html %}
-    
+
     {% include side_bar.html %}
-    <div id="main" role="main">
-        Serdaigle
+
+    <div class="main">
+
+        <h1>Tu penses être digne de la maison Serdaigle ?</h1>
+
+        <h2>Ton érudition va être mis à l'épreuve.</h2>
+
+        <div id="div-epreuve">
+            Résouds cette énigme.</br>
+            <h3>
+                Sans vouloir paraître irespectueux, il me semble évident que des quatre maisons qu'abrite Poudlard, Serdaigle est la plus prestigieuse.
+                Elle accueille en son sein les étudiants les plus savents et les plus réfléchis. En plus, notre symbole est trop stylé,
+                mattes-moi un peu cet aigle, puissant et majestueux. Et puis tout le monde aime le bleu, et il me ua particulièrement bien au teint, ne trouves-tu pas ?
+                Bref, je m'égare, le fait est que tout le monde n'an a que pour Gryffondor. Gryffondor par-ci, Gryffondor par-là, et voilà qu'on triomphe d'un basilic géamt avec l'épée de Gryffondor. Il ne manquait plus que ça.
+                Mais toi, c'est bien Serdaigle qui t'intéresse ? Alors il est temps de faire tes preuves et de résoudre cette énigme.
+            </h3>
+
+            <input id="answer" style="width: 150px;" type="text"  maxlength="7" placeholder="Réponse">
+            <a style="background: {{ page.color }}; color: white;" id="button" class="button">Valider</a>
+
+        </div>
+
     </div>
-</body>
-{% include footer.html %}
+
+    {% include footer.html %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var count = 0;
+            var txt1 = "Ton savoir est digne d'un Serdaigle. Voici un indice : ---3";
+            var txt2 = "J'ai bien peur que tu ne sois pas à la hauteur pour intégrer la maison Serdaigle...";
+            var delay = 75;
+
+            function write(text, t){
+                if (t < text.length) {
+                    $('#div-epreuve').html($('#div-epreuve').text() + text.charAt(t));
+                    setTimeout(write, delay, text, t+1);
+                }
+
+            }
+
+            function success(){
+                $('#div-epreuve').html("");
+                 write(txt1, 0);
+            }
+
+            function fail(){
+                $('#div-epreuve').html("");
+                 write(txt2, 0);
+            }
+
+            $('#button').click(function(){
+                var answer = $('#answer').val().toLowerCase();
+                if (answer == "raven")
+                    success();
+                else
+                    fail();
+            });
+        });
+    </script>
+
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -11,7 +11,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Your awesome title">
     <meta property="og:description" content="">
-    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:url" content="http://localhost:4000/manual.html">
     <meta property="og:site_name" content="Your awesome title">
 
     <meta name="google-site-verification" content="" />
@@ -150,7 +150,6 @@
 
 </head>
 
-
     <div class="navigation-wrapper" style=" background: black; ">
 
 	<div class="site-name" style="font-size:40px; width: 100%; display: flex; align-items: center; justify-content: left; margin: 0; padding:0;">
@@ -174,48 +173,17 @@
 </div><!-- /.navigation-wrapper -->
 
 
-    <div id="main" role="main">
+    <div class="main">
+        <h1>Guide d'utilisation du portail magique</h1>
 
-            <h1>Bienvenue sur le portail magique, un espace commun pour toutes les maisons !</h1>
+        <h3>
+            ⚠ Ce portail est exclusivement destiné aux étudiants de l'école Poudlard. </br>
 
-            <h2>C'est ta première visite ? <a href="http://localhost:4000/manual"> Consultes le guide d'utilisation ici.</a></h2>
+            </br>La magie traditionnelle ne fonctionne pas au travers du portail magique.
+            </br>Pour lancer des sorts, veuillez utiliser l'entrée textuelle en bas de page et valider.
 
-            <div class="container-blason">
-                <a href="http://localhost:4000/gryffondor">
-                    <div class="container-blason">
-                        <div class="text-blason"><h2>Gryffondor</h2> </br> Courage ♢ Hardiesse ♢ Force d'esprit</div>
-                        <img class="image-blason" src="http://localhost:4000/Assets/Images/Blason-gryffondor.png">
-                    </div>
-                </a>
-                <a href="http://localhost:4000/serpentard">
-                    <div class="container-blason">
-                        <img class="image-blason" src="http://localhost:4000/Assets/Images/Blason-serpentard.png">
-                        <div class="text-blason"><h2>Serpentard</h2>  </br>  Ruse ♢ Adresse ♢ Détermination</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="container-blason">
-                <a href="http://localhost:4000/poufsouffle">
-                    <div class="container-blason">
-                        <div class="text-blason"><h2>Poufsouffle</h2> </br> Équilibre ♢ Loyauté ♢ Patience</div>
-                        <img class="image-blason" src="http://localhost:4000/Assets/Images/Blason-poufsouffle.png">
-                    </div>
-                </a>
-                <a href="http://localhost:4000/serdaigle">
-                    <div class="container-blason">
-                        <img class="image-blason" src="http://localhost:4000/Assets/Images/Blason-serdaigle.png">
-                        <div class="text-blason"><h2>Serdaigle</h2> </br> Sagesse ♢ Discernement ♢ Érudition</div>
-                    </div>
-                </a>
-            </div>
-
-        Tu es déjà inscrit à Poudlard ? <a href="http://localhost:4000/connexion">Clique ici pour te connecter</a>.
-
-        <div id="div-link" style="visibility: hidden;">
-            <br/>
-            <a style="background: black; color: white; font-size: 20px; margin:0;" id="portail-button" class="button">Rejoindre le portail des quatre maisons</a>
-        </div>
+            </br> </br> </br> En cas de problème technique, merci de contacter Rusard &#128008;.
+        </h3>
 
     </div>
 
@@ -342,28 +310,28 @@
                 else {
                     write_footer(all_sorts[index] + " !", 0);
 
-                    if (index == indices["revelio"] && "home" == "home")
+                    if (index == indices["revelio"] && "manual" == "home")
                         $('#div-link').css("visibility", "visible");
 
 <!--                    Equipment -->
                     
                     
-                    else if (index == indices["cape"] && "home" == "secretportal"){
+                    else if (index == indices["cape"] && "manual" == "secretportal"){
                         $('#div-cape').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/cape.png");
                         $('#div-cape').find("img").css("border-style", "solid");
                     }
                     
-                    else if (index == indices["wand"] && "home" == "secretportal"){
+                    else if (index == indices["wand"] && "manual" == "secretportal"){
                         $('#div-wand').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/magic_wand.png");
                         $('#div-wand').find("img").css("border-style", "solid");
                     }
                     
-                    else if (index == indices["stone"] && "home" == "secretportal"){
+                    else if (index == indices["stone"] && "manual" == "secretportal"){
                         $('#div-stone').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/stone.png");
                         $('#div-stone').find("img").css("border-style", "solid");
                     }
                     
-                    else if (index == indices["potion"] && "home" == "secretportal"){
+                    else if (index == indices["potion"] && "manual" == "secretportal"){
                         $('#div-potion').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/potion.png");
                         $('#div-potion').find("img").css("border-style", "solid");
                     }
@@ -373,31 +341,31 @@
 <!--                    Keys -->
                     
                     
-                    else if (index == indices["key-slytherin"] && "home" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-slytherin"] && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-slytherin').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/slytherin_key.png");
                         $('#div-key-slytherin').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["key-gryffindor"] && "home" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-gryffindor"] && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-gryffindor').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/gryffindor_key.png");
                         $('#div-key-gryffindor').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["key-hufflepuff"] && "home" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-hufflepuff"] && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-hufflepuff').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/hufflepuff_key.png");
                         $('#div-key-hufflepuff').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["key-ravenclaw"] && "home" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-ravenclaw"] && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-ravenclaw').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/ravenclaw_key.png");
                         $('#div-key-ravenclaw').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["fusion"] && "home" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["fusion"] && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $(document).trigger('key-fusion');
                     }
 
@@ -413,13 +381,4 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $('#portail-button').click(function(){
-            window.location = "http://localhost:4000/secretportal";
-        });
-
-    });
-</script>
 </html>

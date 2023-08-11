@@ -2,12 +2,14 @@
 <html lang="fr">
 {% include header.html %}
 
-<body class="page">
+
     {% include navigation_bar.html %}
 
     <div id="main" role="main">
 
             <h1>Bienvenue sur le portail magique, un espace commun pour toutes les maisons !</h1>
+
+            <h2>C'est ta première visite ? <a href="{{ site.url }}/manual"> Consultes le guide d'utilisation ici.</a></h2>
 
             <div class="container-blason">
                 <a href="{{ site.url }}/gryffondor">
@@ -40,8 +42,24 @@
             </div>
 
         Tu es déjà inscrit à Poudlard ? <a href="{{ site.url }}/connexion">Clique ici pour te connecter</a>.
-    </div>
-</body>
 
-{% include footer.html %}
+        <div id="div-link" style="visibility: hidden;">
+            <br/>
+            <a style="background: {{ page.color }}; color: white; font-size: 20px; margin:0;" id="portail-button" class="button">Rejoindre le portail des quatre maisons</a>
+        </div>
+
+    </div>
+
+
+    {% include footer.html %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#portail-button').click(function(){
+            window.location = "{{ site.url }}/secretportal";
+        });
+
+    });
+</script>
 </html>

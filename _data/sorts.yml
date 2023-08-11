@@ -1,0 +1,71 @@
+-   name: Revelio
+    code: S1648
+    key: revelio
+
+-   name: Incendio
+    code: S8564
+    key: incendio
+
+-   name: Allohomora
+    key: allohomora
+
+-   name: Lumos
+    key: lumos
+
+-   name: Reparo
+    key: reparo
+
+-   name: Protego
+    key: protego
+
+-   name: Petrificus totalus
+    key: petrificus
+
+-   name: Domus clavis fusione
+    key: fusion
+    code: S5000
+
+-   name: Accio \"Clé de Gryffondor\"
+    code: A594
+    image: gryffindor_key.png
+    key: key-gryffindor
+
+-   name: Accio \"Clé de Serpentard\"
+    code: A208
+    image: slytherin_key.png
+    key: key-slytherin
+
+-   name: Accio \"Clé de Serdaigle\"
+    code: A617
+    image: ravenclaw_key.png
+    key: key-ravenclaw
+
+-   name: Accio \"Clé de Poufsouffle\"
+    code: A947
+    image: hufflepuff_key.png
+    key: key-hufflepuff
+
+-   name: Accio \"Pierre de téléportation\"
+    code: A164
+    image: stone.png
+    key: stone
+    equipment: True
+
+-   name: Accio \"Baguette magique\"
+    code: A949
+    image: magic_wand.png
+    key: wand
+    equipment: True
+
+-   name: Accio \"Cape d'invisibilité\"
+    code: A167
+    image: cape.png
+    key: cape
+    equipment: True
+
+
+-   name: Accio \"Potion\"
+    code: A822
+    image: potion.png
+    key: potion
+    equipment: True

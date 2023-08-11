@@ -1,0 +1,4 @@
+---
+layout: manual
+color: black
+---

@@ -41,6 +41,14 @@
         margin-right:25px;
     }
 
+    .equipment {
+        margin: 25px;
+    }
+
+    .key {
+        margin: 25px;
+    }
+
     .image-blason {
         height: auto;
         max-width: 300px;
@@ -67,6 +75,27 @@
 
     .main {
         text-align: center;
+        margin-left:150px;
+        margin-right: 100px;
+    }
+
+    .radio-label {
+        display: inline-block;
+    }
+
+    .question {
+          font-weight: bold;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      padding-bottom:15px;
+      padding-top:15px;
+      width: 100%;
+      color: white;
+      text-align: center;
     }
 
     .button {
@@ -109,11 +138,17 @@
       transition: 0s;
     }
 
+    button:disabled, button[disabled] {
+        color: grey !important;
+    }
 
+    [hidden] {
+        display: none !important;
+    }
 
 </style>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
 </head>
 
@@ -140,14 +175,13 @@
 </div><!-- /.navigation-wrapper -->
 
 
-    <div class="side-bar" style="float: left">
+    <div class="side-bar" style="position:absolute; height: 100%; float: left; width=100px;">
     <img style="width: 100px;" src="http://localhost:4000/Assets/Images/Drapeau-serpentard.png">
-
 </div>
 
     <div class="main">
 
-        <h1>Tu souhaites rejoindre la maison Serpentard ?</h1>
+        <h1>Tu penses être digne de la maison Serpentard ?</h1>
 
         <h2>Ta détermination va être mise à l'épreuve.</h2>
 
@@ -157,19 +191,206 @@
             <a style="background: #145a32; color: white;" id="button" class="button">Clique !</a>
         </div>
 
-
-
     </div>
 
 
-    <footer>
-
+    <footer class="footer" style=" background: #145a32; ">
+    <input id="footer-input" style="width: 200px;" type="text"  maxlength="20" placeholder="Utiliser un sortilège">
+    <a style="background: white; color: #145a32; font-size: 20px; margin:0;" id="footer-button" class="button">✔</a>
+    <div id="footer-output" style="width: 100%;"> </div>
 </footer>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var all_sort_codes = [];
+        var all_sort_keys = [];
+        var all_sorts = [];
+
+        
+            all_sorts.push("Revelio");
+            all_sort_codes.push("S1648");
+            all_sort_keys.push("revelio");
+        
+            all_sorts.push("Incendio");
+            all_sort_codes.push("S8564");
+            all_sort_keys.push("incendio");
+        
+            all_sorts.push("Allohomora");
+            all_sort_codes.push("");
+            all_sort_keys.push("allohomora");
+        
+            all_sorts.push("Lumos");
+            all_sort_codes.push("");
+            all_sort_keys.push("lumos");
+        
+            all_sorts.push("Reparo");
+            all_sort_codes.push("");
+            all_sort_keys.push("reparo");
+        
+            all_sorts.push("Protego");
+            all_sort_codes.push("");
+            all_sort_keys.push("protego");
+        
+            all_sorts.push("Petrificus totalus");
+            all_sort_codes.push("");
+            all_sort_keys.push("petrificus");
+        
+            all_sorts.push("Domus clavis fusione");
+            all_sort_codes.push("S5000");
+            all_sort_keys.push("fusion");
+        
+            all_sorts.push("Accio \"Clé de Gryffondor\"");
+            all_sort_codes.push("A594");
+            all_sort_keys.push("key-gryffindor");
+        
+            all_sorts.push("Accio \"Clé de Serpentard\"");
+            all_sort_codes.push("A208");
+            all_sort_keys.push("key-slytherin");
+        
+            all_sorts.push("Accio \"Clé de Serdaigle\"");
+            all_sort_codes.push("A617");
+            all_sort_keys.push("key-ravenclaw");
+        
+            all_sorts.push("Accio \"Clé de Poufsouffle\"");
+            all_sort_codes.push("A947");
+            all_sort_keys.push("key-hufflepuff");
+        
+            all_sorts.push("Accio \"Pierre de téléportation\"");
+            all_sort_codes.push("A164");
+            all_sort_keys.push("stone");
+        
+            all_sorts.push("Accio \"Baguette magique\"");
+            all_sort_codes.push("A949");
+            all_sort_keys.push("wand");
+        
+            all_sorts.push("Accio \"Cape d'invisibilité\"");
+            all_sort_codes.push("A167");
+            all_sort_keys.push("cape");
+        
+            all_sorts.push("Accio \"Potion\"");
+            all_sort_codes.push("A822");
+            all_sort_keys.push("potion");
+        
+
+        var indices = {};
+        for(const key of all_sort_keys){
+            indices[key] = $.inArray(key, all_sort_keys);
+        }
+
+        function write_footer(text, t){
+            if (t == 0){
+                $('#footer-button').hide();
+                $('#footer-output').html("");
+            }
+
+            if (t < text.length) {
+                $('#footer-output').html($('#footer-output').text() + text.charAt(t));
+                setTimeout(write_footer, 75, text, t+1);
+            }
+            else
+                $('#footer-button').show();
+        }
+
+        function append_footer(text, t){
+            if (t == 0){
+                var init_text = $('#footer-output').text();
+                text = init_text + text;
+                t = init_text.length;
+            }
+
+            if (t < text.length) {
+                $('#footer-output').html($('#footer-output').text() + text.charAt(t));
+                setTimeout(write_footer, 75, text, t+1);
+            }
+            else
+                $('#footer-button').show();
+        }
+
+        $('#footer-button').click(function(){
+                var input = $('#footer-input').val();
+
+                var index = $.inArray(input, all_sort_codes);
+                if ($.inArray(input, all_sort_codes) == -1)
+                    write_footer("Ce sort n'existe pas.", 0);
+                else {
+                    write_footer(all_sorts[index] + " !", 0);
+
+                    if (index == indices["revelio"] && "serpentard" == "home")
+                        $('#div-link').css("visibility", "visible");
+
+<!--                    Equipment -->
+                    
+                    
+                    else if (index == indices["cape"] && "serpentard" == "secretportal"){
+                        $('#div-cape').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/cape.png");
+                        $('#div-cape').find("img").css("border-style", "solid");
+                    }
+                    
+                    else if (index == indices["wand"] && "serpentard" == "secretportal"){
+                        $('#div-wand').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/magic_wand.png");
+                        $('#div-wand').find("img").css("border-style", "solid");
+                    }
+                    
+                    else if (index == indices["stone"] && "serpentard" == "secretportal"){
+                        $('#div-stone').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/stone.png");
+                        $('#div-stone').find("img").css("border-style", "solid");
+                    }
+                    
+                    else if (index == indices["potion"] && "serpentard" == "secretportal"){
+                        $('#div-potion').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/potion.png");
+                        $('#div-potion').find("img").css("border-style", "solid");
+                    }
+                    
+
+
+<!--                    Keys -->
+                    
+                    
+                    else if (index == indices["key-slytherin"] && "serpentard" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $('#div-key-slytherin').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/slytherin_key.png");
+                        $('#div-key-slytherin').find("img").css("border-style", "solid");
+                        $(document).trigger('key-trigger');
+                    }
+                    
+                    else if (index == indices["key-gryffindor"] && "serpentard" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $('#div-key-gryffindor').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/gryffindor_key.png");
+                        $('#div-key-gryffindor').find("img").css("border-style", "solid");
+                        $(document).trigger('key-trigger');
+                    }
+                    
+                    else if (index == indices["key-hufflepuff"] && "serpentard" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $('#div-key-hufflepuff').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/hufflepuff_key.png");
+                        $('#div-key-hufflepuff').find("img").css("border-style", "solid");
+                        $(document).trigger('key-trigger');
+                    }
+                    
+                    else if (index == indices["key-ravenclaw"] && "serpentard" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $('#div-key-ravenclaw').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/ravenclaw_key.png");
+                        $('#div-key-ravenclaw').find("img").css("border-style", "solid");
+                        $(document).trigger('key-trigger');
+                    }
+                    
+                    else if (index == indices["fusion"] && "serpentard" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $(document).trigger('key-fusion');
+                    }
+
+
+                    else {
+                        setTimeout(append_footer, 3000, " Il ne se passe rien...", 0);
+                    }
+                }
+
+
+         });
+
+    });
+</script>
     <script type="text/javascript">
         $(document).ready(function(){
             var count = 0;
             var txt1 = "Tu pensais vraiment qu'il suffirait de 100 cliques pour rejoindre la meilleure maison de Poudlard ?! Allez, disons plutôt 1 000 !";
-            var txt2 = "Bravo, ta détermination est sans égale. Voici un indice.";
+            var txt2 = "Bravo, ta détermination est sans égale. Voici un indice: --1-";
             var delay = 75;
             var count100done = false;
 

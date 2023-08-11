@@ -5,8 +5,48 @@
     {% include navigation_bar.html %}
 
     <div id="main" role="main">
-        Connexion
+
+        <div id="div-connexion">
+            <h2>Connexion</h2>
+            <select name="maison" id="maison-select" >
+                <option value="">--Votre maison--</option>
+                <option value="Gryffondor">Gryffondor</option>
+                <option value="Serpentard">Serpentard</option>
+                <option value="Poufsouffle">Poufsouffle</option>
+                <option value="Serdaigle">Serdaigle</option>
+            </select>
+
+            <input id="username" style="width: 150px;" type="text"  maxlength="20" placeholder="Nom d'utilisateur">
+            <input id="password" style="width: 150px;" type="text"  maxlength="20" placeholder="Mot de passe">
+            <a style="background: white; color: {{ page.color }}; font-size: 20px; margin:0;" id="connexion-button" class="button">✔</a>
+            <div id="connexion-output"></div>
+        </div>
+
+        <div id="div-res">
+        </div>
+
     </div>
 </body>
 {% include footer.html %}
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+         $('#connexion-button').click(function(){
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var house = $("#maison-select option:selected").val();
+
+                if (true){
+                    $("#connexion-output").html("");
+                }
+                else
+                    $("#connexion-output").html("Entrées non reconnues.");
+
+         });
+
+    });
+</script>
+
 </html>

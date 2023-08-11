@@ -7,12 +7,131 @@
 
     {% include side_bar.html %}
 
-    <div style="display: flex; flex-wrap: wrap; align-items: center; ">
+    <div class="main">
 
-        Gryffondor
+        <h1>Tu penses être digne de la maison Gryffondor ?</h1>
+
+        <h2>Ton courage va être mis à l'épreuve.</h2>
+
+        <div id="div-epreuve">
+            Réponds à ce questionnaire qui déterminera ton courage au travers de mises en situation.</br>
+
+            <div class="question">
+                <h3> Question n°1</h3>
+                Encore en train de charparder des feuilles de Tentacula vénéneuses dans la serre du château,
+                le professeur Chourave te surprend, furieuse, un pot de mandragore dans les mains </br></br>
+
+                <div class="answer-container">
+                    <div class="answer" style="display: inline-block;">
+                        <input type="radio" id="q11" name="q1" value="q11">
+                        <label class="radio-label" for="q11"> Tu expliques la situation, bien évidemment tout ça n'est qu'un mal entendu, un voleur moi ?</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="q12" name="q1" value="q12">
+                        <label class="radio-label" for="q12">Tu sors discrètement tes caches-oreilles.</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="q13" name="q1" value="q13">
+                        <label class="radio-label" for="q13">Tu affrontes le sort qu'elle te réserve.</label>
+                    </div>
+                </div>
+            </div>
+
+            </br>
+
+            <div class="question">
+                <h3> Question n°2</h3>
+                Un soir, tu te retrouves à errer dans la Forêt Interdite pour aider Hagrid, le garde-chasse, à retrouver
+                une licorne blessée, tu tombes nez-à-nez avec une gigantesque acromentule. </br></br>
+
+                <div class="answer-container">
+                    <div class="answer" style="display: inline-block;">
+                        <input type="radio" id="q21" name="q2" value="q21">
+                        <label class="radio-label" for="q21">Tu interpelles la créature : Ar..Aragog c'est toi ? Je suis un ami d'Hagrid.</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="q22" name="q2" value="q22">
+                        <label class="radio-label" for="q22">Tu te mets en position, baguette à la main, prêt à en découdre, ce n'est qu'une grosse araignée, après tout.</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="q23" name="q2" value="q23">
+                        <label class="radio-label" for="q23">Tu te dis que tu aurais mieux fait de suivre les papillons.</label>
+                    </div>
+                </div>
+            </div>
+
+            </br>
+
+            <div class="question">
+                <h3> Question n°3</h3>
+                Avec la nouvelle Directrice de Poudlard, Dolores Ombrage, il devient de plus en plus difficile de t'entraîner.
+                Tu décides donc de le faire dans la salle sur demande, malheureusement, la Directrice t'a suivi,
+                suspicieuse que tu sois en train d'aider un certain Dumbledore et va rentrer, à coup de Bombarda, d'une minute à l'autre dans la salle. </br></br>
+
+                <div class="answer-container" style="width=500px">
+                    <div class="answer" style="display: inline-block;">
+                        <input type="radio" id="q31" name="q3" value="q31">
+                        <label class="radio-label" for="q31">Tu laisses ton destin entre les mains de la salle, après tout, elle se transforme en ce dont le sorcier a besoin.</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="q32" name="q3" value="q32">
+                        <label class="radio-label" for="q32">Tu décides d'affronter la colère de cette adoratrice des chats, du thé et du rose (tu connais la leçon, tu ne dois pas mentir).</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="q33" name="q3" value="q33">
+                        <label class="radio-label" for="q33">Tu cours en direction de l'armoire à disparaître, pourquoi pas faire un petit tour chez Barjow et Beurk?</label>
+                    </div>
+                </div>
+            </div>
+            </br>
+            <a style="background: {{ page.color }}; color: white;" id="button" class="button">Valider</a>
+
+        </div>
 
     </div>
 
-
     {% include footer.html %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var count = 0;
+            var txt1 = "Quel courage, tu es digne de la maison Gryffondor. Voici un indice : -8--";
+            var txt2 = "La maison Gryffondor n'est décidément pas faite pour toi...";
+            var delay = 75;
+
+            function write(text, t){
+                if (t < text.length) {
+                    $('#div-epreuve').html($('#div-epreuve').text() + text.charAt(t));
+                    setTimeout(write, delay, text, t+1);
+                }
+
+            }
+
+            function success(){
+                $('#div-epreuve').html("");
+                 write(txt1, 0);
+            }
+
+            function fail(){
+                $('#div-epreuve').html("");
+                 write(txt2, 0);
+            }
+
+            $('#button').click(function(){
+                if(! $('input[name="q1"]').is(':checked') )
+                    alert("Tu n'as pas répondu à toutes les questions");
+                else {
+                    var a1 = $('input[name="q1"]:checked').val();
+                    var a2 = $('input[name="q2"]:checked').val();
+                    var a3 = $('input[name="q3"]:checked').val();
+                    if (a1 == "q13" && a2 == "q22" && a3 == "q32")
+                        success();
+                    else
+                        fail();
+                    }
+            });
+        });
+
+
+    </script>
 </html>

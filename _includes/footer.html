@@ -1,3 +1,99 @@
-<footer>
-
+<footer class="footer" style="{% if page.color %} background: {{ page.color }}; {% endif %}">
+    <input id="footer-input" style="width: 200px;" type="text"  maxlength="20" placeholder="Utiliser un sortilège">
+    <a style="background: white; color: {{ page.color }}; font-size: 20px; margin:0;" id="footer-button" class="button">✔</a>
+    <div id="footer-output" style="width: 100%;"> </div>
 </footer>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var all_sort_codes = [];
+        var all_sort_keys = [];
+        var all_sorts = [];
+
+        {% for sort in site.data.sorts %}
+            all_sorts.push("{{ sort['name'] }}");
+            all_sort_codes.push("{{ sort.code }}");
+            all_sort_keys.push("{{ sort.key }}");
+        {% endfor %}
+
+        var indices = {};
+        for(const key of all_sort_keys){
+            indices[key] = $.inArray(key, all_sort_keys);
+        }
+
+        function write_footer(text, t){
+            if (t == 0){
+                $('#footer-button').hide();
+                $('#footer-output').html("");
+            }
+
+            if (t < text.length) {
+                $('#footer-output').html($('#footer-output').text() + text.charAt(t));
+                setTimeout(write_footer, 75, text, t+1);
+            }
+            else
+                $('#footer-button').show();
+        }
+
+        function append_footer(text, t){
+            if (t == 0){
+                var init_text = $('#footer-output').text();
+                text = init_text + text;
+                t = init_text.length;
+            }
+
+            if (t < text.length) {
+                $('#footer-output').html($('#footer-output').text() + text.charAt(t));
+                setTimeout(write_footer, 75, text, t+1);
+            }
+            else
+                $('#footer-button').show();
+        }
+
+        $('#footer-button').click(function(){
+                var input = $('#footer-input').val();
+
+                var index = $.inArray(input, all_sort_codes);
+                if ($.inArray(input, all_sort_codes) == -1)
+                    write_footer("Ce sort n'existe pas.", 0);
+                else {
+                    write_footer(all_sorts[index] + " !", 0);
+
+                    if (index == indices["revelio"] && "{{ page.layout }}" == "home")
+                        $('#div-link').css("visibility", "visible");
+
+<!--                    Equipment -->
+                    {% assign item_names = "cape, wand, stone, potion" | split: ", " %}
+                    {% for item_name in  item_names %}
+                    else if (index == indices["{{ item_name }}"] && "{{ page.layout }}" == "secretportal"){
+                        $('#div-{{ item_name }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", item_name %}{{ sort.image }}");
+                        $('#div-{{ item_name }}').find("img").css("border-style", "solid");
+                    }
+                    {% endfor %}
+
+
+<!--                    Keys -->
+                    {% assign keynames = "key-slytherin, key-gryffindor, key-hufflepuff, key-ravenclaw" | split: ", " %}
+                    {% for keyname in  keynames %}
+                    else if (index == indices["{{ keyname }}"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $('#div-{{ keyname }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", keyname %}{{ sort.image }}");
+                        $('#div-{{ keyname }}').find("img").css("border-style", "solid");
+                        $(document).trigger('key-trigger');
+                    }
+                    {% endfor %}
+                    else if (index == indices["fusion"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                        $(document).trigger('key-fusion');
+                    }
+
+
+                    else {
+                        setTimeout(append_footer, 3000, " Il ne se passe rien...", 0);
+                    }
+                }
+
+
+         });
+
+    });
+</script>

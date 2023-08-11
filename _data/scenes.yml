@@ -1,0 +1,41 @@
+ClosedPortal:
+    name: ClosedPortal
+    image: closed_portal.png
+    description: "Le portail secret est protégé par la plus sombre des magies : un code d'accès."
+    choices:
+        -   scene: OpenPortal
+            name: "Continuer"
+            disabled: True
+
+OpenPortal:
+    name: OpenPortal
+    image: opened_portal.png
+    description: "Le portail est désormais ouvert. Une voix retentit :</br></br>\"Bonjour, si tu es parvenu jusqu'ici, tu dois être l'élu. Je suis l'âme du portail, les fondateurs de Poudlard m'ont donné pour mission de t'aider dans ta quête. Pour cela, je vais t'indiquer comment 
+desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te faudra tout d'abord atteindre une certaine maturité afin d'endosser cette responsabilité, je sens que tu es sur la bonne voie. Ensuite, il te faudra récupérer les clés de chacune des maisons, celles-ci sont transmises de génération en génération aux préfets des maisons. Enfin, les clés devront être fusionnées dans la salle de fusion, permettant ainsi d'ouvrir le trésor des quatre maisons. On dirait que tu as du pain sur la planche ! \""
+    choices:
+        -   scene: AssemblyRoom
+            name: "Salle d'assemblage"
+            disabled: False
+
+AssemblyRoom:
+    name: AssemblyRoom
+    image: merge_room.png
+    description: Tu pénètres dans la salle d'assemblage.</br> Il semblerait qu'il y ait quatre emplacements.
+    choices:
+        -   scene: MergedKey
+            name: Continuer
+            hidden: True
+MergedKey:
+    name: MergedKey
+    image: merged_key.png
+    description: "Le sortilège d'assemblage a fonctionné !</br></br> Tu es désormais en possession de la clé des quatre maisons.</br>Une inscription est gravée sur la clé: 0000.</br></br> Il ne te reste désormais plus qu'à localiser le trésor et mettre la main sur la relique."
+
+SlytherinDoor:
+    name: SlytherinDoor
+    image: slytherin_door.png
+    description: Tu arrives devant le quartier général des Serpentards. </br></br> La porte semble fermée...
+    choices:
+        -   scene: SlyherinRoom
+            name: Entrer
+            hidden: True
+

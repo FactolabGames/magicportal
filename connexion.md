@@ -1,3 +1,4 @@
 ---
 layout: connexion
+color: black
 ---

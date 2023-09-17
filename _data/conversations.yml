@@ -1,0 +1,30 @@
+-   key: KEBT
+    recipient: Lea
+    content:
+        -   type: "date"
+            content: "12/04/2023"
+        -   type: "message"
+            content: "Yo ! T'as vu, la dernière saison de Poudlard Quest est sortie ?! Tu me passes ton compte Netflix stp ? PLEEEAAAASE"
+            me: False
+        -   type: "message"
+            content: "Ouai pas de soucis. Mon pseudo c'est DragonFeu, et le mot de passe c'est ma date d'anniversaire "
+            me: True
+        -   type: "message"
+            content: "Tu gères !"
+            me: False
+        -   type: "message"
+            content: ";)"
+            me: True
+-   key: XOUR
+    recipient: Gérard
+    content:
+        -   type: "date"
+            content: "12/02/2023"
+        -   type: "message"
+            content: "Salut !"
+            me: False
+        -   type: "message"
+            content: "Comment ça va ?"
+        -   type: "message"
+            content: "ça va !"
+            me: False

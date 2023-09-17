@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {% include header.html %}
+
+    {% include navigation_bar.html %}
+
+    <div class="main">
+        <h1>Bienvenue dans ton espace personnel </h1>
+        <div style="display: flex;  justify-content: center;">
+            <div style="width:256px;">
+                <h2> Mes contacts</h2>
+                {% for conv in site.data.conversations %}
+                    <div><button style="width:200px;" class="button-conversation" id="button-conv-{{ conv.key }}" key="{{ conv.key }}"><h3>{{ conv.recipient }}<h3/></button></div>
+                {% endfor %}
+            </div>
+
+            <div style="width:1024px;">
+                <h2> Messages</h2>
+                {% for conv in site.data.conversations %}
+                    <div class="conversation" id="conv-{{ conv.key }}" {% if conv.key != "KEBT" %} hidden {% endif %}>
+                        {% for item in conv.content %}
+                            {% if item.type == "date" %}
+                                <div class="conv-message conv-date"> {{ item.content }} </div>
+                            {% else %}
+                                <div class="conv-message {% if item.me %} my-message {% else %} recipient-message {% endif %}" > {{ item.content }} </div>
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+
+
+    {% include footer.html %}
+
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".button-conversation").click(function(){
+                $('div.conversation:visible').hide();
+                $('div.choices:visible').hide();
+                conv = $('#conv-'+$(this).attr("key"));
+                conv.removeAttr("hidden");
+                conv.show();
+        });
+
+    });
+
+</script>

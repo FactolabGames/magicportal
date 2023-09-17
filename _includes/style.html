@@ -118,4 +118,36 @@
         display: none !important;
     }
 
+    .conversation {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        border-radius: 1rem;
+        margin-left: 64px;
+    }
+
+    .conv-date {
+        align-self: center;
+    }
+
+    .conv-message {
+        color: white;
+        box-sizing: border-box;
+        padding: 0.5rem 1rem;
+        margin: 1rem;
+        border-radius: 10px;
+        min-height: 2.25rem;
+        width: fit-content;
+        background: black;
+    }
+
+    .conv-message.my-message {
+        background: #45b39d;
+        align-self: flex-end;
+    }
+
+
 </style>

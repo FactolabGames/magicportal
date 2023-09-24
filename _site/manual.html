@@ -220,7 +220,9 @@
     </div>
 
 
-    <footer class="footer" style=" background: black; ">
+    
+<div style="height:100px;"></div>
+<footer class="footer" style=" background: black; ">
     <input id="footer-input" style="width: 200px;" type="text"  maxlength="20" placeholder="Utiliser un sortilège">
     <a style="background: white; color: black; font-size: 20px; margin:0;" id="footer-button" class="button">✔</a>
     <div id="footer-output" style="width: 100%;"> </div>
@@ -243,11 +245,11 @@
             all_sort_keys.push("incendio");
         
             all_sorts.push("Allohomora");
-            all_sort_codes.push("");
+            all_sort_codes.push("S8251");
             all_sort_keys.push("allohomora");
         
             all_sorts.push("Lumos");
-            all_sort_codes.push("");
+            all_sort_codes.push("S2431");
             all_sort_keys.push("lumos");
         
             all_sorts.push("Reparo");
@@ -259,7 +261,7 @@
             all_sort_keys.push("protego");
         
             all_sorts.push("Petrificus totalus");
-            all_sort_codes.push("");
+            all_sort_codes.push("S9988");
             all_sort_keys.push("petrificus");
         
             all_sorts.push("Domus clavis fusione");
@@ -279,7 +281,7 @@
             all_sort_keys.push("key-ravenclaw");
         
             all_sorts.push("Accio \"Clé de Poufsouffle\"");
-            all_sort_codes.push("A947");
+            all_sort_codes.push("9813");
             all_sort_keys.push("key-hufflepuff");
         
             all_sorts.push("Accio \"Pierre de téléportation\"");
@@ -351,21 +353,25 @@
                     else if (index == indices["cape"] && "manual" == "secretportal"){
                         $('#div-cape').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/cape.png");
                         $('#div-cape').find("img").css("border-style", "solid");
+                        $(document).trigger('cape-trigger');
                     }
                     
                     else if (index == indices["wand"] && "manual" == "secretportal"){
                         $('#div-wand').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/magic_wand.png");
                         $('#div-wand').find("img").css("border-style", "solid");
+                        $(document).trigger('wand-trigger');
                     }
                     
                     else if (index == indices["stone"] && "manual" == "secretportal"){
                         $('#div-stone').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/stone.png");
                         $('#div-stone').find("img").css("border-style", "solid");
+                        $(document).trigger('stone-trigger');
                     }
                     
                     else if (index == indices["potion"] && "manual" == "secretportal"){
                         $('#div-potion').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/potion.png");
                         $('#div-potion').find("img").css("border-style", "solid");
+                        $(document).trigger('potion-trigger');
                     }
                     
 
@@ -401,6 +407,14 @@
                         $(document).trigger('key-fusion');
                     }
 
+
+                    else if (index == indices["allohomora"]  && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-SlytherinDoor"){
+                        $(document).trigger('allohomora');
+                    }
+
+                    else if (index == indices["incendio"]  && "manual" == "secretportal" && $(".scene:visible").attr('id') == "scene-VaultDoor"){
+                        $(document).trigger('incendio');
+                    }
 
                     else {
                         setTimeout(append_footer, 3000, " Il ne se passe rien...", 0);

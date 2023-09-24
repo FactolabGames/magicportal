@@ -5,12 +5,14 @@
     {% include navigation_bar.html %}
 
     <div class="main">
-        <h1>Bienvenue dans ton espace personnel </h1>
+        <h1>Bonjour Sachab Helette, bienvenue dans ton espace personnel </h1><br/><br/>
+
+
         <div style="display: flex;  justify-content: center;">
             <div style="width:256px;">
                 <h2> Mes contacts</h2>
                 {% for conv in site.data.conversations %}
-                    <div><button style="width:200px;" class="button-conversation" id="button-conv-{{ conv.key }}" key="{{ conv.key }}"><h3>{{ conv.recipient }}<h3/></button></div>
+                    <div><button style="width:250px;" class="button-conversation" id="button-conv-{{ conv.key }}" key="{{ conv.key }}"><h3>{{ conv.recipient }}<h3/></button></div>
                 {% endfor %}
             </div>
 
@@ -28,6 +30,16 @@
 
                     </div>
                 {% endfor %}
+            </div>
+        </div>
+        <hr>
+        <div style="display: flex; justify-content: center;">
+            <div style="width:300px;">
+                <div style="text-align: center;">
+                <h2>🔒 Coffre-fort numérique 🔒</h2>
+                <input id="password" style="width: 150px;" type="text"  maxlength="20" placeholder="Mot de passe">
+                <a style="background: white; color: {{ page.color }}; font-size: 20px; margin:0;" id="coffre-button" class="button">✔</a>
+                </div>
             </div>
         </div>
 
@@ -48,6 +60,17 @@
                 conv = $('#conv-'+$(this).attr("key"));
                 conv.removeAttr("hidden");
                 conv.show();
+        });
+
+        $("#coffre-button").click(function(){
+            var password = $('#password').val();
+            if (password == "10022000dauphin"){
+                alert("Le coffre contient la clé de Poufsouffle (A947)");
+            }
+            else
+            {
+                alert("Accès refusé");
+            }
         });
 
     });

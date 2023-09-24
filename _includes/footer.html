@@ -1,3 +1,5 @@
+
+<div style="height:100px;"></div>
 <footer class="footer" style="{% if page.color %} background: {{ page.color }}; {% endif %}">
     <input id="footer-input" style="width: 200px;" type="text"  maxlength="20" placeholder="Utiliser un sortilège">
     <a style="background: white; color: {{ page.color }}; font-size: 20px; margin:0;" id="footer-button" class="button">✔</a>
@@ -69,6 +71,7 @@
                     else if (index == indices["{{ item_name }}"] && "{{ page.layout }}" == "secretportal"){
                         $('#div-{{ item_name }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", item_name %}{{ sort.image }}");
                         $('#div-{{ item_name }}').find("img").css("border-style", "solid");
+                        $(document).trigger('{{ item_name }}-trigger');
                     }
                     {% endfor %}
 
@@ -86,6 +89,14 @@
                         $(document).trigger('key-fusion');
                     }
 
+
+                    else if (index == indices["allohomora"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-SlytherinDoor"){
+                        $(document).trigger('allohomora');
+                    }
+
+                    else if (index == indices["incendio"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-VaultDoor"){
+                        $(document).trigger('incendio');
+                    }
 
                     else {
                         setTimeout(append_footer, 3000, " Il ne se passe rien...", 0);

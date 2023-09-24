@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Magic Portal">
     <meta property="og:description" content="">
-    <meta property="og:url" content="http://localhost:4000/serdaigle.html">
+    <meta property="og:url" content="http://localhost:4000/location.html">
     <meta property="og:site_name" content="Magic Portal">
 
     <meta name="google-site-verification" content="" />
@@ -183,7 +182,7 @@
 
 </head>
 
-    <div class="navigation-wrapper" style=" background: #212f3c; ">
+    <div class="navigation-wrapper" style=" background: black; ">
 
 	<div class="site-name" style="font-size:40px; width: 100%; display: flex; align-items: center; justify-content: left; margin: 0; padding:0;">
 		<a href="http://localhost:4000"><img class="nav-icon" src="http://localhost:4000/Assets/Images/Blason-poudlard.png"></a>
@@ -206,38 +205,22 @@
 </div><!-- /.navigation-wrapper -->
 
 
-    <div class="side-bar" style="position:absolute; height: 100%; float: left; width=100px;">
-    <img style="width: 100px;" src="http://localhost:4000/Assets/Images/Drapeau-serdaigle.png">
-</div>
-
     <div class="main">
+        <h3>
+                  Félicitations pour avoir percé le mystère que nous t'avions laissé. As-tu déjà récupéré la clé des 4 maisons ?<br/>
+      Quoiqu'il en soit, le jour n'est pas encore venu, il est trop tôt pour que l'emplacement du trésor te soit dévoilé.<br/><br/>
+      Reviens plus tard.
+        </h3>
 
-        <h1>Tu penses être digne de la maison Serdaigle ?</h1>
-
-        <h2>Ton érudition va être mis à l'épreuve.</h2>
-
-        <div id="div-epreuve">
-            Résouds cette énigme.</br>
-            <h3>
-                Sans vouloir paraître irespectueux, il me semble évident que des quatre maisons qu'abrite Poudlard, Serdaigle est la plus prestigieuse.
-                Elle accueille en son sein les étudiants les plus savents et les plus réfléchis. En plus, notre symbole est trop stylé,
-                mattes-moi un peu cet aigle, puissant et majestueux. Et puis tout le monde aime le bleu, et il me ua particulièrement bien au teint, ne trouves-tu pas ?
-                Bref, je m'égare, le fait est que tout le monde n'an a que pour Gryffondor. Gryffondor par-ci, Gryffondor par-là, et voilà qu'on triomphe d'un basilic géamt avec l'épée de Gryffondor. Il ne manquait plus que ça.
-                Mais toi, c'est bien Serdaigle qui t'intéresse ? Alors il est temps de faire tes preuves et de résoudre cette énigme.
-            </h3>
-
-            <input id="answer" style="width: 150px;" type="text"  maxlength="7" placeholder="Réponse">
-            <a style="background: #212f3c; color: white;" id="button" class="button">Valider</a>
-
-        </div>
 
     </div>
 
+
     
 <div style="height:100px;"></div>
-<footer class="footer" style=" background: #212f3c; ">
+<footer class="footer" style=" background: black; ">
     <input id="footer-input" style="width: 200px;" type="text"  maxlength="20" placeholder="Utiliser un sortilège">
-    <a style="background: white; color: #212f3c; font-size: 20px; margin:0;" id="footer-button" class="button">✔</a>
+    <a style="background: white; color: black; font-size: 20px; margin:0;" id="footer-button" class="button">✔</a>
     <div id="footer-output" style="width: 100%;"> </div>
 </footer>
 
@@ -357,31 +340,31 @@
                 else {
                     write_footer(all_sorts[index] + " !", 0);
 
-                    if (index == indices["revelio"] && "serdaigle" == "home")
+                    if (index == indices["revelio"] && "location" == "home")
                         $('#div-link').css("visibility", "visible");
 
 <!--                    Equipment -->
                     
                     
-                    else if (index == indices["cape"] && "serdaigle" == "secretportal"){
+                    else if (index == indices["cape"] && "location" == "secretportal"){
                         $('#div-cape').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/cape.png");
                         $('#div-cape').find("img").css("border-style", "solid");
                         $(document).trigger('cape-trigger');
                     }
                     
-                    else if (index == indices["wand"] && "serdaigle" == "secretportal"){
+                    else if (index == indices["wand"] && "location" == "secretportal"){
                         $('#div-wand').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/magic_wand.png");
                         $('#div-wand').find("img").css("border-style", "solid");
                         $(document).trigger('wand-trigger');
                     }
                     
-                    else if (index == indices["stone"] && "serdaigle" == "secretportal"){
+                    else if (index == indices["stone"] && "location" == "secretportal"){
                         $('#div-stone').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/stone.png");
                         $('#div-stone').find("img").css("border-style", "solid");
                         $(document).trigger('stone-trigger');
                     }
                     
-                    else if (index == indices["potion"] && "serdaigle" == "secretportal"){
+                    else if (index == indices["potion"] && "location" == "secretportal"){
                         $('#div-potion').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/potion.png");
                         $('#div-potion').find("img").css("border-style", "solid");
                         $(document).trigger('potion-trigger');
@@ -392,40 +375,40 @@
 <!--                    Keys -->
                     
                     
-                    else if (index == indices["key-slytherin"] && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-slytherin"] && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-slytherin').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/slytherin_key.png");
                         $('#div-key-slytherin').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["key-gryffindor"] && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-gryffindor"] && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-gryffindor').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/gryffindor_key.png");
                         $('#div-key-gryffindor').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["key-hufflepuff"] && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-hufflepuff"] && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-hufflepuff').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/hufflepuff_key.png");
                         $('#div-key-hufflepuff').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["key-ravenclaw"] && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["key-ravenclaw"] && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $('#div-key-ravenclaw').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/ravenclaw_key.png");
                         $('#div-key-ravenclaw').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
                     
-                    else if (index == indices["fusion"] && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
+                    else if (index == indices["fusion"] && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $(document).trigger('key-fusion');
                     }
 
 
-                    else if (index == indices["allohomora"]  && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-SlytherinDoor"){
+                    else if (index == indices["allohomora"]  && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-SlytherinDoor"){
                         $(document).trigger('allohomora');
                     }
 
-                    else if (index == indices["incendio"]  && "serdaigle" == "secretportal" && $(".scene:visible").attr('id') == "scene-VaultDoor"){
+                    else if (index == indices["incendio"]  && "location" == "secretportal" && $(".scene:visible").attr('id') == "scene-VaultDoor"){
                         $(document).trigger('incendio');
                     }
 
@@ -439,40 +422,5 @@
 
     });
 </script>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var count = 0;
-            var txt1 = "Ton savoir est digne d'un Serdaigle. Voici un indice : ---3";
-            var txt2 = "J'ai bien peur que tu ne sois pas à la hauteur pour intégrer la maison Serdaigle...";
-            var delay = 75;
-
-            function write(text, t){
-                if (t < text.length) {
-                    $('#div-epreuve').html($('#div-epreuve').text() + text.charAt(t));
-                    setTimeout(write, delay, text, t+1);
-                }
-
-            }
-
-            function success(){
-                $('#div-epreuve').html("");
-                 write(txt1, 0);
-            }
-
-            function fail(){
-                $('#div-epreuve').html("");
-                 write(txt2, 0);
-            }
-
-            $('#button').click(function(){
-                var answer = $('#answer').val().toLowerCase();
-                if (answer == "raven")
-                    success();
-                else
-                    fail();
-            });
-        });
-    </script>
 
 </html>

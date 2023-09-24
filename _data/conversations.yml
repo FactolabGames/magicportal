@@ -1,30 +1,121 @@
--   key: KEBT
-    recipient: Lea
+-   key: XOUR
+    recipient: Cédric 🦨
     content:
         -   type: "date"
-            content: "12/04/2023"
+            content: "12/10/2008"
+        -   type: "message"
+            content: "Hey, faut que je te dise un truc ?"
+            me: False
+        -   type: "message"
+            content: "Ah ouai ?"
+            me: True
+        -   type: "message"
+            content: "C'est un secret"
+            me: False
+        -   type: "message"
+            content: "Personne doit savoir"
+            me: False
+        -   type: "message"
+            content: "Bah ne me le dis pas alors..."
+            me: True
+        -   type: "message"
+            content: "Mon vrai nom est Edward Cullen et je suis un vampire"
+            me: False
+        -   type: "message"
+            content: "Et bah c'est super mec..."
+            me: True
+        -   type: "message"
+            content: "🦇"
+            me: False
+-   key: KEBT
+    recipient: Dragon MauvaiseFoi 🐍
+    content:
+        -   type: "date"
+            content: "11/02/2023"
         -   type: "message"
             content: "Yo ! T'as vu, la dernière saison de Poudlard Quest est sortie ?! Tu me passes ton compte Netflix stp ? PLEEEAAAASE"
             me: False
         -   type: "message"
-            content: "Ouai pas de soucis. Mon pseudo c'est DragonFeu, et le mot de passe c'est ma date d'anniversaire "
+            content: "Ouai pas de soucis. Mon pseudo c'est DragonFeu, et le mot de passe c'est ma date d'anniversaire"
             me: True
         -   type: "message"
-            content: "Tu gères !"
+            content: "Merci bien, espèce de Sang-de-bourbe ! Wesh il a cru qu'on était pote"
+            me: False
+        -   type: "date"
+            content: "<i>Dragon MauvaiseFoi 🐍 vous a bloqué</i>"
+
+-   key: XAPDH
+    recipient: LongDeLaTeub 🦁
+    content:
+        -   type: "date"
+            content: "23/06/2020"
+        -   type: "message"
+            content: "Coucou toi, c'est quoi ton animal préféré ?"
             me: False
         -   type: "message"
-            content: ";)"
+            content: "Le dauphin, pourquoi ?"
             me: True
--   key: XOUR
-    recipient: Gérard
+        -   type: "message"
+            content: "Ah moi c'est l'éléphant ! Tu veux savoir pourquoi ?"
+            me: False
+        -   type: "message"
+            content: "Euh non, pas vraiment..."
+            me: True
+        -   type: "message"
+            content: "Parce que'il a une longue trompe, comme moi"
+            me: False
+        -   type: "message"
+            content: "S9988 !"
+            me: True
+        -   type: "date"
+            content: "<i>Vous avez pétrifié LongDeLaTeub 🦁</i>"
+            me: True
+-   key: XPBR
+    recipient: Luna LaChelou 🦅
     content:
         -   type: "date"
             content: "12/02/2023"
         -   type: "message"
-            content: "Salut !"
+            content: "Joyeux anniversaire ma petite belette ! Je sais, j'ai deux jour de retard, désolé. Tu m'en veux pas, hein ?! Dis, dis, tu m'en veux pas ?!"
             me: False
         -   type: "message"
-            content: "Comment ça va ?"
+            content: "Merci ah ah Non, t'inquiètes c'est pas grave ! Et du coup il est où mon cadeau ? Parce que bon là j'en compte que 36 ! L'année dernière, j'en avais 37 !"
+            me: True
         -   type: "message"
-            content: "ça va !"
+            content: "Ne t'en fais pas Sachab, j'irai t'acheter, disons, 2 autres cadeaux !"
             me: False
+        -   type: "message"
+            content: "Au fait, je t'ai pas raconté ! Hier, y'a l'autre vipère qui est venu me demander mes codes Netflix pour mater Pourdlard Quest. Je lui est filé un faux mot de passe, ça lui fera les pieds."
+            me: True
+        -   type: "message"
+            content: "Quoi ? Pourdlard Quest a repris ?! On est d'accord t'as laissé ton vieux mot de passe pété là ? Ta date d'anniversaire suivi de ton animal préféré, c'est bien ça ?"
+            me: False
+        -   type: "message"
+            content: "ouai, c'est bien ça"
+            me: True
+        -   type: "message"
+            content: "Génial ! Si tu passes à Poudlard prochainement, je te filerai un bouquin qui pourrait t'intéresser, ça parle de trois frères et de leurs vielles reliques, un trésor littéraire à n'en pas douter ;)"
+            me: False
+-   key: XATR
+    recipient: Vol-Vie 🐍
+    content:
+        -   type: "date"
+            content: "02/07/2010"
+        -   type: "message"
+            content: "Viens à moi, que je te déchire... que je t'écorche..."
+            me: False
+        -   type: "message"
+            content: "Hmm mouais, sans façon, je passe mon tour"
+            me: True
+        -   type: "message"
+            content: "Et elle est dans ta poche !!!"
+            me: False
+        -   type: "message"
+            content: "Il va falloir se calmer là mon gars"
+            me: True
+        -   type: "message"
+            content: "A toi de jouer Queudver, attaque !"
+            me: False
+        -   type: "date"
+            content: "<i>Vous avez bloqué Vol-Vie 🐍</i>"
+            me: True

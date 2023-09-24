@@ -38,8 +38,8 @@
                 var password = $('#password').val();
                 var house = $("#maison-select option:selected").val();
 
-                if (true){
-                    $("#connexion-output").html("");
+                if (house == "Poufsouffle" && username == "Soufflepouf" && password == "JetDeSable" ){
+                    window.location = "{{ site.url }}/profil";
                 }
                 else
                     $("#connexion-output").html("Entrées non reconnues.");

@@ -11,10 +11,60 @@ OpenPortal:
     name: OpenPortal
     image: opened_portal.png
     description: "Le portail est désormais ouvert. Une voix retentit :</br></br>\"Bonjour, si tu es parvenu jusqu'ici, tu dois être l'élu. Je suis l'âme du portail, les fondateurs de Poudlard m'ont donné pour mission de t'aider dans ta quête. Pour cela, je vais t'indiquer comment 
-desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te faudra tout d'abord atteindre une certaine maturité afin d'endosser cette responsabilité, je sens que tu es sur la bonne voie. Ensuite, il te faudra récupérer les clés de chacune des maisons, celles-ci sont transmises de génération en génération aux préfets des maisons. Enfin, les clés devront être fusionnées dans la salle de fusion, permettant ainsi d'ouvrir le trésor des quatre maisons. On dirait que tu as du pain sur la planche ! \""
+desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te faudra tout d'abord atteindre une certaine maturité afin d'endosser cette responsabilité, je sens que tu es sur la bonne voie. Ensuite, il te faudra récupérer les clés de chacune des maisons, celles-ci sont transmises de génération en génération aux préfets des maisons. Enfin, les clés devront être fusionnées dans la salle de fusion, permettant ainsi d'ouvrir le trésor des quatre maisons. On dirait que tu as du pain sur la planche ! 
+<br/> Ah oui, une dernière information, sans la pierre de téléportation, mes capacités de transport sont quelques peu... aléatoires\""
     choices:
         -   scene: AssemblyRoom
             name: "Salle d'assemblage"
+            disabled: False
+            hidden: True
+        -   scene: SlytherinCorridor
+            name: "Aile des Serpentards"
+            disabled: False
+            hidden: True
+        -   scene: StoneCave
+            name: "Grotte mystérieuse"
+            disabled: False
+            hidden: True
+        -   scene: Random
+            name: "Entrer dans le portail"
+            disabled: False
+
+StoneCave:
+    name: StoneCave
+    image: stone_cave.png
+    description: Tu mets les pieds dans une grotte très mystérieuse.
+    choices:
+        - scene: CaveEnigma
+          name: "Avancer"
+          disabled: False
+        -   scene: OpenPortal
+            name: Retourner au portail
+
+CaveEnigma:
+    name: CaveEnigma
+    image:
+    description: "<div id='enigma-begin'>Oh, toi, jeune sorcier qui t’aventures dans l’antre du pic du Cône Henri, si tu veux pouvoir continuer ton chemin, tu n’as pas d’autres choix que de répondre à mes énigmes 
+    , et, qui sait, peut-être que toi, toi, toi, toi, toi, sous tes airs de oui, oui, oui, oui, oui et bien t’inquiètes hein…, tu pourrais découvrir quelque chose d’utile : </div>
+        <br/><br/>
+        <div id='enigma-body'>
+         1ère énigme : <br/><br/>Quatre mètres de haut <br/>Cauchemar des toilettes et des baguettes <br/>Le t-t-tturban l’invita à entrer <br/>Wingardium Leviosa (et pas Levioooosar !) en sera la clé <br/><br/>Qui suis-je ? </div>"
+    choices:
+        -   scene: StonePrice
+            name: "Avancer"
+            disabled: False
+            hidden: True
+        -   scene: StoneCave
+            name: "Fuir"
+            disabled: False
+
+StonePrice:
+    name: StonePrice
+    image: stone.png
+    description: Tu récupères la pierre de téléportation (A164)
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
             disabled: False
 
 AssemblyRoom:
@@ -30,12 +80,53 @@ MergedKey:
     image: merged_key.png
     description: "Le sortilège d'assemblage a fonctionné !</br></br> Tu es désormais en possession de la clé des quatre maisons.</br>Une inscription est gravée sur la clé: 0000.</br></br> Il ne te reste désormais plus qu'à localiser le trésor et mettre la main sur la relique."
 
+
+SlytherinCorridor:
+    name: SlytherinCorridor
+    image: slytherin_corridor.png
+    description: Serait-ce l'aile de Poudlard réservée aux Serpentard ?</br></br> Impossible de poursuivre sans être repéré...
+    choices:
+        -   scene: SlytherinDoor
+            name: Mettre la cape et avancer discrètement
+            hidden: True
+        -   scene: OpenPortal
+            name: Retourner au portail
+
 SlytherinDoor:
     name: SlytherinDoor
     image: slytherin_door.png
     description: Tu arrives devant le quartier général des Serpentards. </br></br> La porte semble fermée...
     choices:
-        -   scene: SlyherinRoom
+        -   scene: SlytherinRoom
             name: Entrer
             hidden: True
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
+
+SlytherinRoom:
+    name: SlytherinRoom
+    image: slytherin_headquarters.png
+    description: Te voici dans le quartier général des serpentards, la prudence est de mise.
+
+VaultDoor:
+    name: VaultDoor
+    image: vault_door.png
+    description: La nature a reprit ses droits depuis bien longtemps par ici. Impossible d'entrer avec toute cette végétation.
+    choices:
+        -   scene: VaultRoom
+            name: Entrer
+            hidden: True
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
+
+VaultRoom:
+    name: VaultRoom
+    image: vault_room.png
+    description: La pièce est remplie d'ouvrages littéraire, comment peut-on s'y retrouver là-dedans ? <br/> Vous fouillez avec attention le tas de feuilles disposé sur le bureau. Certaines d'entre elles attirent votre attention.<br/><br/> [Prendre la chemise rouge]
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
 

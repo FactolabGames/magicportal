@@ -8,9 +8,11 @@
 
 -   name: Allohomora
     key: allohomora
+    code: S8251
 
 -   name: Lumos
     key: lumos
+    code: S2431
 
 -   name: Reparo
     key: reparo
@@ -20,6 +22,7 @@
 
 -   name: Petrificus totalus
     key: petrificus
+    code: S9988
 
 -   name: Domus clavis fusione
     key: fusion
@@ -41,7 +44,7 @@
     key: key-ravenclaw
 
 -   name: Accio \"Clé de Poufsouffle\"
-    code: A947
+    code: 9813
     image: hufflepuff_key.png
     key: key-hufflepuff
 
@@ -62,7 +65,6 @@
     image: cape.png
     key: cape
     equipment: True
-
 
 -   name: Accio \"Potion\"
     code: A822

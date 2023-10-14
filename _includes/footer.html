@@ -98,6 +98,14 @@
                         $(document).trigger('incendio');
                     }
 
+                    else if (index == indices["protego"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-Snake"){
+                        $(document).trigger('protego');
+                    }
+
+                    else if (index == indices["petrificus"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-Snake"){
+                        $(document).trigger('petrificus');
+                    }
+
                     else {
                         setTimeout(append_footer, 3000, " Il ne se passe rien...", 0);
                     }

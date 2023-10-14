@@ -439,23 +439,19 @@
             all_sort_keys.push("revelio");
         
             all_sorts.push("Incendio");
-            all_sort_codes.push("S8564");
+            all_sort_codes.push("S4963");
             all_sort_keys.push("incendio");
         
             all_sorts.push("Allohomora");
-            all_sort_codes.push("S8251");
+            all_sort_codes.push("S1042");
             all_sort_keys.push("allohomora");
         
             all_sorts.push("Lumos");
             all_sort_codes.push("S2431");
             all_sort_keys.push("lumos");
         
-            all_sorts.push("Reparo");
-            all_sort_codes.push("");
-            all_sort_keys.push("reparo");
-        
             all_sorts.push("Protego");
-            all_sort_codes.push("");
+            all_sort_codes.push("S8239");
             all_sort_keys.push("protego");
         
             all_sorts.push("Petrificus totalus");
@@ -479,7 +475,7 @@
             all_sort_keys.push("key-ravenclaw");
         
             all_sorts.push("Accio \"Clé de Poufsouffle\"");
-            all_sort_codes.push("9813");
+            all_sort_codes.push("A947");
             all_sort_keys.push("key-hufflepuff");
         
             all_sorts.push("Accio \"Pierre de téléportation\"");
@@ -612,6 +608,14 @@
 
                     else if (index == indices["incendio"]  && "profil" == "secretportal" && $(".scene:visible").attr('id') == "scene-VaultDoor"){
                         $(document).trigger('incendio');
+                    }
+
+                    else if (index == indices["protego"]  && "profil" == "secretportal" && $(".scene:visible").attr('id') == "scene-Snake"){
+                        $(document).trigger('protego');
+                    }
+
+                    else if (index == indices["petrificus"]  && "profil" == "secretportal" && $(".scene:visible").attr('id') == "scene-Snake"){
+                        $(document).trigger('petrificus');
                     }
 
                     else {

@@ -26,6 +26,18 @@ desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te f
             name: "Grotte mystérieuse"
             disabled: False
             hidden: True
+        -   scene: VaultDoor
+            name: "Porte végétale"
+            hidden: True
+        -   scene: Toilets
+            name: "Toilettes"
+            hidden: True
+        -   scene: HufflepuffCommonRoom
+            name: "Salle commune de Poufsouffle"
+            hidden: True
+        -   scene: WandStore
+            name: "Boutique de baguettes"
+            hidden: True
         -   scene: Random
             name: "Entrer dans le portail"
             disabled: False
@@ -108,6 +120,31 @@ SlytherinRoom:
     name: SlytherinRoom
     image: slytherin_headquarters.png
     description: Te voici dans le quartier général des serpentards, la prudence est de mise.
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
+        -   scene: Snake
+            name: Fouiller la pièce
+
+Snake:
+    name: Snake
+    image: snake.png
+    description: "<div id='div-snake' step='1'>Tu scannes la pièce à la recherche d'un point d'intérêt et ton regard se pose sur une boîte.<br/><br/>
+    Tu tentes de l'ouvrir et un serpent en sort. Il semble prêt à en découdre. Tu ferais mieux de te mettre à l'abri.</div>"
+    choices:
+        -   scene: SlytherinKey
+            name: "Fouiller le contenu de la boîte"
+            disabled: True
+
+SlytherinKey:
+    name: SlytherinKey
+    image: slytherin_key.png
+    description: "Vous trouvez la clé de Serpentard ! (A208)"
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
 
 VaultDoor:
     name: VaultDoor
@@ -130,3 +167,89 @@ VaultRoom:
             name: "Retourner au portail"
             disabled: False
 
+Toilets:
+    name: Toilets
+    image: toilets.png
+    description: Te voilà dans... les toilettes de Poudlard.
+    choices:
+        -   scene: Potion
+            name: "Fouiller les toilettes"
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+
+Potion:
+    name: Potion
+    image: potion.png
+    description: En fouillant dans les toilettes, tu découvres une fiole étrange remplie d'une substance liquide (A822). Serait-ce une potion ? </br></br> Mais que font des poils de belette dans les toilettes ?
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
+
+HufflepuffCommonRoom:
+    name: HufflepuffCommonRoom
+    image: hufflepuff_common_room.png
+    description: C'est donc à ça que ressemble la salle commune de Poufsouffle ! <br/><br/> Et cette porte, il doit s'agir de la chambre du préfet. Si seulement tu pouvais t'y introduire, tu trouverais sûrement des indices pour accéder à la clé de Poufsouffle, pour sûr !<br/><br/> Mais comment y entrer sans te faire repérer par cet étudiant ?
+    choices:
+        -   scene: DrinkPotion
+            name: "Boire la potion"
+            hidden: True
+        -   scene: HufflepuffBedroom
+            name: "Entrer dans la chambre du préfet"
+            hidden: True
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+
+HufflepuffBedroom:
+    name: HufflepuffBedroom
+    image: hufflepuff_bedroom.png
+    description: La chambre du préfet de Poufsouffle. Par où commencer les recherches ?
+    choices:
+        -   scene: HufflepuffDrawer
+            name: "Tiroirs"
+        -   scene: HufflepuffBed
+            name: "Sous le lit"
+        -   scene: HufflepuffNotebook
+            name: "Table de nuit"
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False
+
+
+HufflepuffNotebook:
+    name: HufflepuffNotebook
+    image: hufflepuff_notebook.png
+    description: "Un carnet est posé sur la table de nuit, il attire ton attention. D'après la première page, il appartient bien au préfet, Sachab Helette. Des inscriptions sont notées en bas de cette page: <br/><br/> \" Magic Portal:<br/>login: SoufflePouf<br/>Mdp: JetDeSable\"<br/><br/> Le reste du carnet semble rempli de passages autobiographiques. Peut-être prépare-t-il ses mémoires."
+    choices:
+        -   scene: HufflepuffBedroom
+            name: "Reposer le carnet"
+
+
+HufflepuffDrawer:
+    name: HufflepuffDrawer
+    image: hufflepuff_drawer.png
+    description: "Tu ouvres le tiroir de la commode.<br/><br/> On pourrait en sauver des elfes de maison avec toutes ces chaussettes..."
+    choices:
+        -   scene: HufflepuffBedroom
+            name: "Fermer le tiroir"
+
+
+HufflepuffBed:
+    name: HufflepuffBed
+    image: hufflepuff_under_bed.png
+    description: "Tu t'abaisses pour inspecter sous le lit... <br/><br/> Et si on se laissait tenter par quelques sucreries."
+    choices:
+        -   scene: HufflepuffBedroom
+            name: "Se relever"
+
+
+WandStore:
+    name: WandStore
+    image: wand_store.png
+    description: Bienvenu de ma boutique jeune sorcier !
+    choices:
+         -  scene: OpenPortal
+            name: "Retourner au portail"
+            disabled: False

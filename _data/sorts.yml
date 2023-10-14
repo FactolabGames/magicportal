@@ -3,22 +3,20 @@
     key: revelio
 
 -   name: Incendio
-    code: S8564
+    code: S4963
     key: incendio
 
 -   name: Allohomora
     key: allohomora
-    code: S8251
+    code: S1042
 
 -   name: Lumos
     key: lumos
     code: S2431
 
--   name: Reparo
-    key: reparo
-
 -   name: Protego
     key: protego
+    code: S8239
 
 -   name: Petrificus totalus
     key: petrificus
@@ -44,7 +42,7 @@
     key: key-ravenclaw
 
 -   name: Accio \"Clé de Poufsouffle\"
-    code: 9813
+    code: A947
     image: hufflepuff_key.png
     key: key-hufflepuff
 

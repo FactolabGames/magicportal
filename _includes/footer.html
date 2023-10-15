@@ -85,10 +85,31 @@
                         $(document).trigger('key-trigger');
                     }
                     {% endfor %}
+
+<!--                    Wand items -->
+                    {% assign keynames = "feather, ordinary_feather" | split: ", " %}
+                    {% for keyname in  keynames %}
+                    else if (index == indices["{{ keyname }}"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
+                        $('#div-feather').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", keyname %}{{ sort.image }}");
+                        $('#div-feather').find("img").css("border-style", "solid");
+                        $('#div-feather').attr("object", "{{ keyname }}");
+                        $(document).trigger('wand-trigger');
+                    }
+                    {% endfor %}
+
+                    {% assign keynames = "ordinary_wood, branch" | split: ", " %}
+                    {% for keyname in  keynames %}
+                    else if (index == indices["{{ keyname }}"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
+                        $('#div-branch').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", keyname %}{{ sort.image }}");
+                        $('#div-branch').find("img").css("border-style", "solid");
+                        $('#div-branch').attr("object", "{{ keyname }}");
+                        $(document).trigger('wand-trigger');
+                    }
+                    {% endfor %}
+
                     else if (index == indices["fusion"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $(document).trigger('key-fusion');
                     }
-
 
                     else if (index == indices["allohomora"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-SlytherinDoor"){
                         $(document).trigger('allohomora');
@@ -104,6 +125,10 @@
 
                     else if (index == indices["petrificus"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-Snake"){
                         $(document).trigger('petrificus');
+                    }
+
+                    else if (index == indices["lumos"]  && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-Darkness"){
+                        $(document).trigger('lumos');
                     }
 
                     else {

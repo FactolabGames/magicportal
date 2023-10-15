@@ -291,6 +291,10 @@
             all_sort_codes.push("A949");
             all_sort_keys.push("wand");
         
+            all_sorts.push("Accio \"Baguette magique\"");
+            all_sort_codes.push("A948");
+            all_sort_keys.push("ordinary_wand");
+        
             all_sorts.push("Accio \"Cape d'invisibilité\"");
             all_sort_codes.push("A167");
             all_sort_keys.push("cape");
@@ -298,6 +302,30 @@
             all_sorts.push("Accio \"Potion\"");
             all_sort_codes.push("A822");
             all_sort_keys.push("potion");
+        
+            all_sorts.push("Accio \"Branche\"");
+            all_sort_codes.push("A111");
+            all_sort_keys.push("branch");
+        
+            all_sorts.push("Accio \"Plume\"");
+            all_sort_codes.push("A456");
+            all_sort_keys.push("feather");
+        
+            all_sorts.push("Accio \"Bois\"");
+            all_sort_codes.push("A650");
+            all_sort_keys.push("ordinary_wood");
+        
+            all_sorts.push("Accio \"Plume\"");
+            all_sort_codes.push("A231");
+            all_sort_keys.push("ordinary_feather");
+        
+            all_sorts.push("Accio \"Sucreries\"");
+            all_sort_codes.push("A463");
+            all_sort_keys.push("candies");
+        
+            all_sorts.push("Accio \"Chaussette\"");
+            all_sort_codes.push("A991");
+            all_sort_keys.push("socket");
         
 
         var indices = {};
@@ -402,10 +430,45 @@
                         $(document).trigger('key-trigger');
                     }
                     
+
+<!--                    Wand items -->
+                    
+                    
+                    else if (index == indices["feather"] && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
+                        $('#div-feather').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/feather.png");
+                        $('#div-feather').find("img").css("border-style", "solid");
+                        $('#div-feather').attr("object", "feather");
+                        $(document).trigger('wand-trigger');
+                    }
+                    
+                    else if (index == indices["ordinary_feather"] && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
+                        $('#div-feather').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/ordinary_feather.png");
+                        $('#div-feather').find("img").css("border-style", "solid");
+                        $('#div-feather').attr("object", "ordinary_feather");
+                        $(document).trigger('wand-trigger');
+                    }
+                    
+
+                    
+                    
+                    else if (index == indices["ordinary_wood"] && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
+                        $('#div-branch').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/ordinary_wood.png");
+                        $('#div-branch').find("img").css("border-style", "solid");
+                        $('#div-branch').attr("object", "ordinary_wood");
+                        $(document).trigger('wand-trigger');
+                    }
+                    
+                    else if (index == indices["branch"] && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
+                        $('#div-branch').find("img").attr("src", "http://localhost:4000/Assets/Images/secret_portal/branch.png");
+                        $('#div-branch').find("img").css("border-style", "solid");
+                        $('#div-branch').attr("object", "branch");
+                        $(document).trigger('wand-trigger');
+                    }
+                    
+
                     else if (index == indices["fusion"] && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
                         $(document).trigger('key-fusion');
                     }
-
 
                     else if (index == indices["allohomora"]  && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-SlytherinDoor"){
                         $(document).trigger('allohomora');
@@ -421,6 +484,10 @@
 
                     else if (index == indices["petrificus"]  && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-Snake"){
                         $(document).trigger('petrificus');
+                    }
+
+                    else if (index == indices["lumos"]  && "poufsouffle" == "secretportal" && $(".scene:visible").attr('id') == "scene-Darkness"){
+                        $(document).trigger('lumos');
                     }
 
                     else {

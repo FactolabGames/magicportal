@@ -58,6 +58,12 @@
     key: wand
     equipment: True
 
+-   name: Accio \"Baguette magique\"
+    code: A948
+    image: ordinary_wand.png
+    key: ordinary_wand
+    equipment: True
+
 -   name: Accio \"Cape d'invisibilité\"
     code: A167
     image: cape.png
@@ -69,3 +75,33 @@
     image: potion.png
     key: potion
     equipment: True
+
+-   name: Accio \"Branche\"
+    code: A111
+    image: branch.png
+    key: branch
+
+-   name: Accio \"Plume\"
+    code: A456
+    image: feather.png
+    key: feather
+
+-   name: Accio \"Bois\"
+    code: A650
+    image: ordinary_wood.png
+    key: ordinary_wood
+
+-   name: Accio \"Plume\"
+    code: A231
+    image: ordinary_feather.png
+    key: ordinary_feather
+
+-   name: Accio \"Sucreries\"
+    code: A463
+    image: candies.png
+    key: candies
+
+-   name: Accio \"Chaussette\"
+    code: A991
+    image: socket.png
+    key: socket

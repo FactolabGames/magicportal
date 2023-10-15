@@ -38,6 +38,12 @@ desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te f
         -   scene: WandStore
             name: "Boutique de baguettes"
             hidden: True
+        -   scene: Tree
+            name: "Arbre majestueux"
+            hidden: True
+        -   scene: Darkness
+            name: "Lieu inconnu"
+            hidden: True
         -   scene: Random
             name: "Entrer dans le portail"
             disabled: False
@@ -87,6 +93,8 @@ AssemblyRoom:
         -   scene: MergedKey
             name: Continuer
             hidden: True
+        -   scene: OpenPortal
+            name: "Retourner au portail"
 MergedKey:
     name: MergedKey
     image: merged_key.png
@@ -230,7 +238,7 @@ HufflepuffNotebook:
 HufflepuffDrawer:
     name: HufflepuffDrawer
     image: hufflepuff_drawer.png
-    description: "Tu ouvres le tiroir de la commode.<br/><br/> On pourrait en sauver des elfes de maison avec toutes ces chaussettes..."
+    description: "Tu ouvres le tiroir de la commode.<br/><br/> On pourrait en sauver des elfes de maison avec toutes ces chaussettes (A991)... <br/><br/> Chaussette ! CHAUUUUSSETTTTE ! Pourquoi je monte pas de niveau, sérieux ?!"
     choices:
         -   scene: HufflepuffBedroom
             name: "Fermer le tiroir"
@@ -239,7 +247,7 @@ HufflepuffDrawer:
 HufflepuffBed:
     name: HufflepuffBed
     image: hufflepuff_under_bed.png
-    description: "Tu t'abaisses pour inspecter sous le lit... <br/><br/> Et si on se laissait tenter par quelques sucreries."
+    description: "Tu t'abaisses pour inspecter sous le lit... <br/><br/> Et si on se laissait tenter par quelques sucreries (A463)."
     choices:
         -   scene: HufflepuffBedroom
             name: "Se relever"
@@ -248,8 +256,78 @@ HufflepuffBed:
 WandStore:
     name: WandStore
     image: wand_store.png
-    description: Bienvenu de ma boutique jeune sorcier !
+    description: "Bienvenu dans ma boutique jeune sorcier ! Hmm, je sens en toi l'âme d'un grand sorcier. Rapporte-moi du bois et une plume et je te confectionnerai un baguette !"
     choices:
+         -  scene: Wand
+            name: "Récupérer la baguette"
+            hidden: true
+         -  scene: OrdinaryWand
+            name: "Récupérer la baguette"
+            hidden: true
          -  scene: OpenPortal
             name: "Retourner au portail"
-            disabled: False
+
+Wand:
+    name: Wand
+    image: magic_wand.png
+    description: "Cette baguette magique dégage une puissance invraisemblable (A949)."
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+OrdinaryWand:
+    name: OrdinaryWand
+    image: ordinary_wand.png
+    description: "Cette baguette magique dégage une puissance... invraisemblable (A650)."
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+Tree:
+    name: Tree
+    image: tree.png
+    description:
+    choices:
+        -   scene: Branch
+            name: "Récupérer une branche"
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+
+Branch:
+    name: Branch
+    image: branch.png
+    description: "Tu arraches une branche du vénérable arbre mojo... euh magique (A111)."
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+Darkness:
+    name: Darkness
+    image: black.png
+    description: "Mais quel est cet endroit ? On y voit rien du tout... "
+    choices:
+        -   scene: CapeGiver
+            name: "Continuer"
+            hidden: true
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+
+CapeGiver:
+    name: CapeGiver
+    image: marcelle.png
+    description: "Oooooh mon petit-fils, viens faire un poutou à mamie ! Tiens, prends ça, ça te tiendras chaud, il fait frisquet dans les parages. J'en avais déjà tricoté une pour ton petit frère. Tu sais bien, je... je veux pas faire d'inzustiiiiceuuuh. <br/><br/> Et puis tu sais, là dernière fois j'ai voulu aller faire les courses, et, et je suis tooombée !"
+    choices:
+        -   scene: Cape
+            name: "Récupérer le cadeau"
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+Cape:
+    name: Cape
+    image: cape.png
+    description: "Une cape d'invisibilité (A167) ! Wouah ! Elle gratte mais elle peut s'avérer bien pratique !"
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"

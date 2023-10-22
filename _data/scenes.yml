@@ -22,6 +22,9 @@ desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te f
             name: "Aile des Serpentards"
             disabled: False
             hidden: True
+        -   scene: GryffindorMeeting
+            name: "Salle du conseil Gryffondor"
+            hidden: True
         -   scene: StoneCave
             name: "Grotte mystérieuse"
             disabled: False
@@ -47,6 +50,17 @@ desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te f
         -   scene: Random
             name: "Entrer dans le portail"
             disabled: False
+
+
+GryffindorMeeting:
+    name: GryffindorMeeting
+    image: gryffindor_meeting.png
+    description: "Qui ose interrompre la séance du conseil Gryffondor ? Encore un Wisley je présume !<br/><br/> Comment ? Tu souhaites accéder à la clé de la maison Gryffondor ? <br/> Hm... Quelle audace ! Et bien, si telle est ta requête, telle sera ma réponse. <br/>
+                La clé est répartie entre chacun des membres de ce conseil, dans cet ordre: Sokarbur, BestMum76, et bien évidemment moi-même, la Comptesse. Viens à notre rencontre, et nous te proposerons chacun un défi. Seule la victoire te permettra d'obtenir ce que tu désires ! <br/><br/> Tu sais comment nous contacter... A bientôt ! Et ferme la porte en sortant."
+    choices:
+        -   scene: OpenPortal
+            name: Retourner au portail
+
 
 StoneCave:
     name: StoneCave
@@ -129,21 +143,37 @@ SlytherinRoom:
     image: slytherin_headquarters.png
     description: Te voici dans le quartier général des serpentards, la prudence est de mise.
     choices:
+        -   scene: Snake
+            name: Fouiller le rez-de-chaussé
+        -   scene: NoAction
+            name: Fouiller l'étage
+            message: "Rien d'intéressant à l'étage"
+        -   scene: OrdinaryWood
+            name: Inspecter l'escalier
         -   scene: OpenPortal
             name: "Retourner au portail"
             disabled: False
-        -   scene: Snake
-            name: Fouiller la pièce
+
+OrdinaryWood:
+    name: OrdinaryWood
+    image: ordinary_wood.png
+    description: L'escalier n'est pas de toute jeunesse. Les planches (A650) ne tiennent plus.
+    choices:
+        -   scene: SlytherinRoom
+            name: Retour
+
 
 Snake:
     name: Snake
     image: snake.png
     description: "<div id='div-snake' step='1'>Tu scannes la pièce à la recherche d'un point d'intérêt et ton regard se pose sur une boîte.<br/><br/>
-    Tu tentes de l'ouvrir et un serpent en sort. Il semble prêt à en découdre. Tu ferais mieux de te mettre à l'abri.</div>"
+    Tu tentes de l'ouvrir et un serpent en sort. Il garde forcément quelque-chose d'important. <br/><br/>Il semble prêt à en découdre. Tu ferais mieux de te mettre à l'abri.</div>"
     choices:
         -   scene: SlytherinKey
             name: "Fouiller le contenu de la boîte"
             disabled: True
+        -   scene: SlytherinRoom
+            name: Fuir
 
 SlytherinKey:
     name: SlytherinKey
@@ -180,20 +210,58 @@ Toilets:
     image: toilets.png
     description: Te voilà dans... les toilettes de Poudlard.
     choices:
-        -   scene: Potion
-            name: "Fouiller les toilettes"
+        -   scene: ToiletEmpty
+            name: "Entrer dans les toilettes de gauche"
+        -   scene: ToiletPotion
+            name: "Entrer dans les toilettes du milieu"
+        -   scene: ToiletPortkey
+            name: "Entrer dans les toilettes de droite"
         -   scene: OpenPortal
             name: "Retourner au portail"
 
+
+ToiletEmpty:
+    name: Toilets
+    image: toilet_empty.png
+    description: Ces toilettes semblent tout à fait... ordinaires.
+    choices:
+        -   scene: NoAction
+            name: "Tirer la chasse"
+            message: "Tu tires la chasse... Il ne se passe rien."
+        -   scene: Toilets
+            name: "Sortir"
+
+ToiletPotion:
+    name: Toilets
+    image: toilet_potion.png
+    description: Ce chaudron n'a rien à faire ici... À y regarder de plus près, il semblerait que des poils de belettes sont dispersés sur le sol.
+    choices:
+        -   scene: Potion
+            name: "Prélever le liquide du chaudron"
+        -   scene: NoAction
+            name: "Tirer la chasse"
+            message: "Tu tires la chasse... Il ne se passe rien."
+        -   scene: Toilets
+            name: "Sortir"
+
+ToiletPortkey:
+    name: Toilets
+    image: toilet_empty.png
+    description: Ces toilettes semblent tout à fait... ordinaires.
+    choices:
+        -   scene: PhoenixRoom
+            name: "Tirer la chasse"
+        -   scene: Toilets
+            name: "Sortir"
 
 Potion:
     name: Potion
     image: potion.png
-    description: En fouillant dans les toilettes, tu découvres une fiole étrange remplie d'une substance liquide (A822). Serait-ce une potion ? </br></br> Mais que font des poils de belette dans les toilettes ?
+    description: Tu récupères une fiole étrange remplie d'une substance liquide (A822). Serait-ce une potion ?
     choices:
-        -   scene: OpenPortal
-            name: "Retourner au portail"
-            disabled: False
+        -   scene: ToiletPotion
+            name: "Retour"
+
 
 HufflepuffCommonRoom:
     name: HufflepuffCommonRoom
@@ -206,9 +274,22 @@ HufflepuffCommonRoom:
         -   scene: HufflepuffBedroom
             name: "Entrer dans la chambre du préfet"
             hidden: True
+        -   scene: NoAction
+            name: "Inspecter la bibliothèque"
+            message: "'Devenir un sorcier pour les nuls', 'Faire pousser des mandragores sans mourir', 'Le conte des trois frères' : que de livres intéressants !"
+        -   scene: OrdinaryFeather
+            name: "S'assoir sur le canapé"
         -   scene: OpenPortal
             name: "Retourner au portail"
 
+
+OrdinaryFeather:
+    name: OrdinaryFeather
+    image: ordinary_feather.png
+    description: Le canapé est assez confortable, mais quelque-choise te pique, une plume (A231) ressort du coussin sur lequel tu étais adossés.
+    choices:
+        -   scene: HufflepuffCommonRoom
+            name: "Se relever"
 
 HufflepuffBedroom:
     name: HufflepuffBedroom
@@ -331,3 +412,38 @@ Cape:
     choices:
         -   scene: OpenPortal
             name: "Retourner au portail"
+
+PhoenixRoom:
+    name: PhoenixRoom
+    image: phoenix_room.png
+    description: "Woooow, qu'est-ce qu'il vient de se passer ?! Qui aurait imaginé que des toilettes puissent être un Portoloin... <br/><br/> Quel est cet endroit ?"
+    choices:
+        -   scene: NoAction
+            name: "Fouiller le bureau"
+            message: "Rien d'intéressant dans ce bureau..."
+        -   scene: PhoenixFeather
+            name: "Arracher une plume au Phoenix"
+        -   scene: NoAction
+            name: "Approcher sa main du feu"
+            message: "Outch ! Ça brûle ! (bah oui, faut pas être bêbête non plus)"
+        -   scene: BrailleSheet
+            name: "Inspecter les documents"
+        -   scene: OpenPortal
+            name: "Retourner au portail"
+
+PhoenixFeather:
+    name: PhoenixFeather
+    image: feather.png
+    description: "Une plume de phoenix (A231), une ! Ça peut valoir cher sur le marché noir gnark gnark"
+    choices:
+        -   scene: PhoenixRoom
+            name: "Retour"
+
+
+BrailleSheet:
+    name: BrailleSheet
+    image: braille_sheet.png
+    description: "Un document attire votre attention"
+    choices:
+        -   scene: PhoenixRoom
+            name: "Retour"

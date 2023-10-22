@@ -6,19 +6,40 @@
 
     <div class="main">
         <h1>Guide d'utilisation du portail magique</h1>
-
+        <br/><br/>
         <h3>
             ⚠ Ce portail est exclusivement destiné aux étudiants de l'école Poudlard. </br>
 
             </br>La magie traditionnelle ne fonctionne pas au travers du portail magique.
             </br>Pour lancer des sorts, veuillez utiliser l'entrée textuelle en bas de page et valider.
 
+            <br/><br/>
+            Il existe deux types de sorts : les sorts traditionels "SXXXX" et les sorts permettant d'utiliser un objet "AXXX" (chaque X représentant un chiffre).
+            <br/><br/>
+            Un dernier conseil, tout se révèle à celui qui sait écouter <span id="button-audio-morse">🔊</span>
+
+             <audio autoplay id="audio-morse" src="{{ site.url }}/Assets/audio/morse.mp3"></audio>
+
             </br> </br> </br> En cas de problème technique, merci de contacter Rusard &#128008;.
         </h3>
 
     </div>
 
-
     {% include footer.html %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#button-audio-morse").click(function(){
+            var audio = $("#audio-morse");
+                if (audio.prop("paused")){
+                   audio.trigger("play");
+                }
+                else{
+                    audio.trigger("pause");
+                    audio.currentTime = 0
+                }
+            });
+        });
+    </script>
 
 </html>

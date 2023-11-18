@@ -63,6 +63,7 @@
     image: ordinary_wand.png
     key: ordinary_wand
     equipment: True
+    visible: False
 
 -   name: Accio \"Cape d'invisibilité\"
     code: A167

@@ -47,6 +47,9 @@ desceller le trésor des quatre maisons et ainsi accéder à la relique. Il te f
         -   scene: Darkness
             name: "Lieu inconnu"
             hidden: True
+        -   scene: GameMaster
+            name: "Game Master"
+            hidden: True
         -   scene: Random
             name: "Entrer dans le portail"
             disabled: False
@@ -447,3 +450,11 @@ BrailleSheet:
     choices:
         -   scene: PhoenixRoom
             name: "Retour"
+
+GameMaster:
+    name: GameMaster
+    image: me/me_1.png
+    description: "Bienvenue jeune sorcier ! Je me présente, je suis le maître de ce jeu, mon blaze c'est DenisLeRapido. Je suis en possession d'un sort qui te sera fort utile. Mais pour l'obtenir, tu vas devoir réussir l'épreuve que je t'ai concocté. Quand tu seras prêt, contacte moi sur ma boîte à image magique de poche !"
+    choices:
+        -   scene: OpenPortal
+            name: "Retourner au portail"

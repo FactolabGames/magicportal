@@ -69,16 +69,15 @@
                     {% assign item_names = "cape, stone, potion" | split: ", " %}
                     {% for item_name in  item_names %}
                     else if (index == indices["{{ item_name }}"] && "{{ page.layout }}" == "secretportal"){
-                        {% assign sort = site.data.sorts | find: "key", item_name %}
-                        $("#div-portal").html("{{ sort.name }} {{ sort.image }}");
-                        $('#div-{{ item_name }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{{ sort.image }}");
+                        {% assign sort = site.data.sorts | where: "key", item_name %}
+                        $('#div-{{ item_name }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{{ sort[0].image }}");
                         $('#div-{{ item_name }}').find("img").css("border-style", "solid");
                         $(document).trigger('{{ item_name }}-trigger');
                     }
                     {% endfor %}
 
                     else if (index == indices["wand"] && "{{ page.layout }}" == "secretportal"){
-                        $('#div-wand').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", "wand" %}{{ sort.image }}");
+                        $('#div-wand').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | where: "key", "wand" %}{{ sort[0].image }}");
                         $('#div-wand').find("img").css("border-style", "solid");
                         $('#div-wand').removeAttr("hidden").show();
                         $("#div-ordinary_wand").attr("hidden", "true").hide();
@@ -87,7 +86,7 @@
                     }
 
                     else if (index == indices["ordinary_wand"] && "{{ page.layout }}" == "secretportal"){
-                        $('#div-ordinary_wand').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", "ordinary_wand" %}{{ sort.image }}");
+                        $('#div-ordinary_wand').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | where: "key", "ordinary_wand" %}{{ sort[0].image }}");
                         $('#div-ordinary_wand').find("img").css("border-style", "solid");
                         $('#div-ordinary_wand').removeAttr("hidden").show();
                         $("#div-wand").attr("hidden", "true").hide();
@@ -99,7 +98,7 @@
                     {% assign keynames = "key-slytherin, key-gryffindor, key-hufflepuff, key-ravenclaw" | split: ", " %}
                     {% for keyname in  keynames %}
                     else if (index == indices["{{ keyname }}"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-AssemblyRoom"){
-                        $('#div-{{ keyname }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", keyname %}{{ sort.image }}");
+                        $('#div-{{ keyname }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | where: "key", keyname %}{{ sort[0].image }}");
                         $('#div-{{ keyname }}').find("img").css("border-style", "solid");
                         $(document).trigger('key-trigger');
                     }
@@ -109,7 +108,7 @@
                     {% assign keynames = "feather, ordinary_feather" | split: ", " %}
                     {% for keyname in  keynames %}
                     else if (index == indices["{{ keyname }}"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
-                        $('#div-feather').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", keyname %}{{ sort.image }}");
+                        $('#div-feather').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | where: "key", keyname %}{{ sort[0].image }}");
                         $('#div-feather').find("img").css("border-style", "solid");
                         $('#div-feather').attr("object", "{{ keyname }}");
                         $(document).trigger('wand-store');
@@ -119,7 +118,7 @@
                     {% assign keynames = "ordinary_wood, branch" | split: ", " %}
                     {% for keyname in  keynames %}
                     else if (index == indices["{{ keyname }}"] && "{{ page.layout }}" == "secretportal" && $(".scene:visible").attr('id') == "scene-WandStore"){
-                        $('#div-branch').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", keyname %}{{ sort.image }}");
+                        $('#div-branch').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | where: "key", keyname %}{{ sort[0].image }}");
                         $('#div-branch').find("img").css("border-style", "solid");
                         $('#div-branch').attr("object", "{{ keyname }}");
                         $(document).trigger('wand-store');

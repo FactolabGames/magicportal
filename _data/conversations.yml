@@ -62,7 +62,7 @@
             content: "Euh non, pas vraiment..."
             me: True
         -   type: "message"
-            content: "Parce que'il a une longue trompe, comme moi"
+            content: "Parce qu'il a une longue trompe, comme moi"
             me: False
         -   type: "message"
             content: "S9988 !"
@@ -76,7 +76,7 @@
         -   type: "date"
             content: "12/02/2023"
         -   type: "message"
-            content: "Joyeux anniversaire ma petite belette ! Je sais, j'ai deux jour de retard, désolé. Tu m'en veux pas, hein ?! Dis, dis, tu m'en veux pas ?!"
+            content: "Joyeux anniversaire ma petite belette ! Alors, ça fait quoi d'être majeur ?! Je sais, j'ai deux jour de retard, désolé. Tu m'en veux pas, hein ?! Dis, dis, tu m'en veux pas ?!"
             me: False
         -   type: "message"
             content: "Merci ah ah Non, t'inquiètes c'est pas grave ! Et du coup il est où mon cadeau ? Parce que bon là j'en compte que 36 ! L'année dernière, j'en avais 37 !"

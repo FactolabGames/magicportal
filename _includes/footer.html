@@ -69,7 +69,9 @@
                     {% assign item_names = "cape, stone, potion" | split: ", " %}
                     {% for item_name in  item_names %}
                     else if (index == indices["{{ item_name }}"] && "{{ page.layout }}" == "secretportal"){
-                        $('#div-{{ item_name }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{% assign sort = site.data.sorts | find: "key", item_name %}{{ sort.image }}");
+                        {% assign sort = site.data.sorts | find: "key", item_name %}
+                        $("#div-portal").html("{{ sort.name }} {{ sort.image }}");
+                        $('#div-{{ item_name }}').find("img").attr("src", "{{ site.url }}/Assets/Images/secret_portal/{{ sort.image }}");
                         $('#div-{{ item_name }}').find("img").css("border-style", "solid");
                         $(document).trigger('{{ item_name }}-trigger');
                     }

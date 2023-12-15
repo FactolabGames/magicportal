@@ -362,7 +362,7 @@ Wand:
 OrdinaryWand:
     name: OrdinaryWand
     image: ordinary_wand.png
-    description: "Cette baguette magique dégage une puissance... invraisemblable (A650)."
+    description: "Cette baguette magique dégage une puissance... invraisemblable (A948)."
     choices:
         -   scene: OpenPortal
             name: "Retourner au portail"
@@ -437,7 +437,7 @@ PhoenixRoom:
 PhoenixFeather:
     name: PhoenixFeather
     image: feather.png
-    description: "Une plume de phoenix (A231), une ! Ça peut valoir cher sur le marché noir gnark gnark"
+    description: "Une plume de phoenix (A456), une ! Ça peut valoir cher sur le marché noir gnark gnark"
     choices:
         -   scene: PhoenixRoom
             name: "Retour"

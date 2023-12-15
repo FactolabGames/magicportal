@@ -16,9 +16,10 @@
             <br/><br/>
             Il existe deux types de sorts : les sorts traditionels "SXXXX" et les sorts permettant d'utiliser un objet "AXXX" (chaque X représentant un chiffre).
             <br/><br/>
-            Un dernier conseil, tout se révèle à celui qui sait écouter <span id="button-audio-morse">🔊</span>
+            Un dernier conseil, tout se révèle à celui qui sait écouter <span id="button-audio-morse">🔊</span><br/>
+            <br/>
 
-             <audio autoplay id="audio-morse" src="{{ site.url }}/Assets/audio/morse.mp3"></audio>
+             <audio controls id="audio-morse" src="{{ site.url }}/Assets/audio/morse.mp3"></audio>
 
             </br> </br> </br> En cas de problème technique, merci de contacter Rusard &#128008;.
         </h3>
@@ -27,19 +28,19 @@
 
     {% include footer.html %}
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#button-audio-morse").click(function(){
-            var audio = $("#audio-morse");
-                if (audio.prop("paused")){
-                   audio.trigger("play");
-                }
-                else{
-                    audio.trigger("pause");
-                    audio.currentTime = 0
-                }
-            });
-        });
-    </script>
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function(){-->
+<!--            $("#button-audio-morse").click(function(){-->
+<!--            var audio = $("#audio-morse");-->
+<!--                if (audio.prop("paused")){-->
+<!--                   audio.trigger("play");-->
+<!--                }-->
+<!--                else{-->
+<!--                    audio.trigger("pause");-->
+<!--                    audio.currentTime = 0-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 
 </html>

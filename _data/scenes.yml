@@ -202,7 +202,7 @@ VaultDoor:
 VaultRoom:
     name: VaultRoom
     image: vault_room.png
-    description: La pièce est remplie d'ouvrages littéraire, comment peut-on s'y retrouver là-dedans ? <br/> Vous fouillez avec attention le tas de feuilles disposé sur le bureau. Certaines d'entre elles attirent votre attention.<br/><br/> [Prendre la chemise rose]
+    description: La pièce est remplie d'ouvrages littéraire, comment peut-on s'y retrouver là-dedans ? <br/> Vous fouillez avec attention le tas de feuilles disposé sur le bureau. Certaines d'entre elles attirent votre attention.<br/><br/> [Ouvrir l'enveloppe A']
     choices:
         -   scene: OpenPortal
             name: "Retourner au portail"
